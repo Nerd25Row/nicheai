@@ -18,13 +18,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { Eye } from "lucide-react";
+import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import LogoComponent from "../layouts/LogoComponent";
 import { emailExists, signUp } from "../../services/auth/authService";
 import { Alert } from "../ui/alert";
 import { useNavigate } from "react-router-dom";
 import BackToPage from "../layouts/BackToHomePage";
+import { useState } from "react";
 const formSchema = z.object({
   first_name: z
     .string()
@@ -49,6 +50,8 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 const SignupForm = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -73,7 +76,7 @@ const SignupForm = () => {
         return;
       }
       await signUp(values);
-     navigate(`/auth/confirm-email?email=${encodeURIComponent(values.email)}`);
+      navigate(`/auth/confirm-email?email=${encodeURIComponent(values.email)}`);
     } catch (err: any) {
       const msg =
         err?.message ||
@@ -253,13 +256,25 @@ const SignupForm = () => {
                         Create Password
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="relative flex w-full rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
                           <Input
+                            type={showPassword ? "text" : "password"}
                             placeholder="Create your password"
                             className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
                             {...field}
                           />
-                          <Eye className="absolute right-4 top-1/2 -translate-y-1/2 w-[20px] h-[20px] rotate-0 opacity-100 text-[#B6BCCA] cursor-pointer" />
+                          {/* Tail Icon */}
+                          <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 opacity-100 text-white"
+                          >
+                            {showPassword ? (
+                              <EyeOffIcon className="w-5 h-5" />
+                            ) : (
+                              <EyeIcon className="w-5 h-5" />
+                            )}
+                          </button>
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -280,7 +295,7 @@ const SignupForm = () => {
           </div>
         </div>
       </div>
-      <BackToPage  title="Back to homepage" route="/" />
+      <BackToPage title="Back to homepage" route="/" />
     </div>
   );
 };

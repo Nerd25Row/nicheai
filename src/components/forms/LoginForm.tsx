@@ -123,7 +123,7 @@ const LoginForm = () => {
                           </FormLabel>
 
                           <FormControl>
-                            <div className="flex w-full rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
+                            <div className="relative flex w-full rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
                               <Input
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Enter your password"
