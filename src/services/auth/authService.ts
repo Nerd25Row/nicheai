@@ -94,7 +94,7 @@ export const resendSignupEmail = async (email: string): Promise<AuthData> => {
 };
 
 export const requestPasswordReset = async (email: string): Promise<any> => {
-  const { data, error } = await supabase.auth.resetPasswordForEmail(email,{redirectTo:'https://nicheai-six.vercel.app/reset-password'});
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email,{redirectTo:'https://nicheai-six.vercel.app/auth/reset-password'});
   if (error) throw error;
   return data;
 };

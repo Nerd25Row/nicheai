@@ -19,7 +19,6 @@ import ErrorPage from "../pages/errors";
 import { AuthLayout } from "../components";
 import ProtectedRoute from "./ProtectedRoute";
 import ResendEmailPage from "../pages/auth/resend-email";
-import EmailConfirmationPage  from "../pages/auth/confirm-email";
 const router = createBrowserRouter([
   // Auth routes
   {
@@ -31,7 +30,6 @@ const router = createBrowserRouter([
       { path: "forgot-password", element: <ForgotPasswordPage /> },
       { path: "reset-password", element: <ResetPasswordPage /> },
       { path: "resend-email", element: <ResendEmailPage /> },
-      { path: "confirm-email", element: <EmailConfirmationPage /> },
     ],
   },
 
