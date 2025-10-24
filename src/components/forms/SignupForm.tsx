@@ -21,11 +21,11 @@ import {
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import LogoComponent from "../layouts/LogoComponent";
-import { emailExists, signUp } from "../../services/auth/authService";
 import { Alert } from "../ui/alert";
 import { useNavigate } from "react-router-dom";
 import BackToPage from "../layouts/BackToHomePage";
 import { useState } from "react";
+import { useSignUp } from "../../features/auth/useAuthMutations";
 const formSchema = z.object({
   first_name: z
     .string()
@@ -66,33 +66,33 @@ const SignupForm = () => {
   const {
     handleSubmit,
     setError,
-    formState: { isSubmitting, errors },
+    formState: { errors },
   } = form;
-  const submitSignup = async (values: FormValues) => {
-    try {
-      const exists = await emailExists(values.email);
-      if (exists) {
-        form.setError("email", { message: "Email is already registered." });
-        return;
-      }
-      await signUp(values);
-      navigate(`/auth/confirm-email?email=${encodeURIComponent(values.email)}`);
-    } catch (err: any) {
-      const msg =
-        err?.message ||
-        err?.error_description ||
-        "We couldn’t create your account. Please try again.";
+  
+  const signupMutation = useSignUp();
 
-      // Common Supabase message for duplicates: "User already registered"
-      if (typeof msg === "string" && /already registered|exists/i.test(msg)) {
-        setError("email", {
-          type: "server",
-          message: "Email is already registered.",
-        });
-      } else {
-        setError("root", { type: "server", message: msg });
-      }
-    }
+  const submitSignup = async (values: FormValues) => {
+    signupMutation.mutate(values, {
+      onSuccess: (_data, variables) => {
+        navigate(
+          `/auth/resend-email?email=${encodeURIComponent(variables.email)}`
+        );
+      },
+      onError: (err: any) => {
+        const msg =
+          err?.message ||
+          err?.error_description ||
+          "We couldn't create your account. Please try again.";
+        if (typeof msg === "string" && /already registered|exists/i.test(msg)) {
+          setError("email", {
+            type: "server",
+            message: "Email is already registered.",
+          });
+        } else {
+          setError("root", { type: "server", message: msg });
+        }
+      },
+    });
   };
   return (
     <div className="relative md:absolute flex flex-col items-center w-full max-w-[90%] sm:max-w-[500px] md:w-[540px] min-h-screen md:h-[996px] rotate-0 opacity-100 top-0 md:top-[64px] gap-6 md:gap-10 px-4 md:px-0 py-8 md:py-0 pb-20 md:pb-0">
@@ -283,11 +283,13 @@ const SignupForm = () => {
                 />
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={signupMutation.isPending}
                   className="cursor-pointer w-full md:w-[444px] h-[48px] rotate-0 opacity-100 rounded-lg gap-2 px-6 bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-medium shadow-[inset_0px_-20px_20px_0px_#01FF013D]"
                 >
                   <span className="w-auto md:w-[59px] h-[24px] rotate-0 opacity-100 font-inter font-bold text-[16px] leading-[24px] tracking-[0em] align-middle text-[#1D2027]">
-                    {isSubmitting ? "Creating account..." : "Sign up"}
+                    {signupMutation.isPending
+                      ? "Creating account..."
+                      : "Sign up"}
                   </span>
                 </Button>
               </form>

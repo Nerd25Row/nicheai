@@ -15,10 +15,10 @@ import { z } from "zod";
 import { Input } from "../ui/input";
 import { useState } from "react";
 import LogoComponent from "../layouts/LogoComponent";
-import { signIn } from "../../services/auth/authService";
 import { Alert } from "../ui/alert";
 import { useNavigate } from "react-router-dom";
 import BackToPage from "../layouts/BackToHomePage";
+import { useSignIn } from "../../features/auth/useAuthMutations";
 
 const formSchema = z.object({
   email: z.email("Please enter valid email"),
@@ -40,29 +40,31 @@ const LoginForm = () => {
   const {
     handleSubmit,
     setError,
-    formState: { isSubmitting, errors },
+    formState: { errors },
   } = form;
+  
+  const loginMutation = useSignIn();
 
-  const loginSubmit = async (values: FormValues) => {
-    try {
-      await signIn(values);
-      navigate("/");
-    } catch (err: any) {
-      const msg =
-        err?.message ||
-        err?.error_description ||
-        "Unable to log in. Please try again.";
-
-      // Common Supabase message: "Invalid login credentials"
-      if (typeof msg === "string" && /invalid login/i.test(msg)) {
-        setError("password", {
-          type: "server",
-          message: "Invalid email or password.",
-        });
-      } else {
-        setError("root", { type: "server", message: msg });
-      }
-    }
+  const loginSubmit = (values: FormValues) => {
+    loginMutation.mutate(values, {
+      onSuccess: () => {
+        navigate("/");
+      },
+      onError: (err: any) => {
+        const msg =
+          err?.message ||
+          err?.error_description ||
+          "Unable to log in. Please try again.";
+        if (typeof msg === "string" && /invalid login/i.test(msg)) {
+          setError("password", {
+            type: "server",
+            message: "Invalid email or password.",
+          });
+        } else {
+          setError("root", { type: "server", message: msg });
+        }
+      },
+    });
   };
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-[90%] sm:max-w-md lg:max-w-[540px] opacity-100 gap-6 sm:gap-8 lg:gap-[40px] py-4">
@@ -164,11 +166,11 @@ const LoginForm = () => {
                 {/* login button */}
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={loginMutation.isPending}
                   className="cursor-pointer w-full h-11 sm:h-12 px-4 sm:px-6 rounded-lg bg-[#00FFFF] hover:bg-[#00FFFF]/90 opacity-100 shadow-[inset_0_-20px_20px_0_#01FF013D]"
                 >
                   <span className="text-[#1D2027] text-sm sm:text-[16px] leading-5 sm:leading-6 font-inter font-bold opacity-100">
-                    {isSubmitting ? "Logging in..." : "Log in"}
+                    {loginMutation.isPending ? "Logging in..." : "Log in"}
                   </span>
                 </Button>
               </form>

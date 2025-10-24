@@ -1,12 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "../../store/auth/authStore";
-import {
-  getSession,
-  getUser,
-  signIn,
-  signOut,
-  signUp,
-} from "../../services/auth/authService";
+import { signIn, signOut, signUp } from "../../services/auth/authService";
 
 export const useSignIn = () => {
   const qc = useQueryClient();
@@ -14,10 +8,9 @@ export const useSignIn = () => {
 
   return useMutation({
     mutationFn: ({ email, password }: { email: string; password: string }) =>
-      signIn({email, password}),
+      signIn({ email, password }),
     onMutate: () => setStatus("loading"),
     onSuccess: async (data) => {
-      // Use the data returned from signIn instead of making additional API calls
       setUser(data.user);
       setSession(data.session);
       setStatus("authenticated");
@@ -30,7 +23,7 @@ export const useSignIn = () => {
 
 export const useSignUp = () => {
   const qc = useQueryClient();
-  const { setUser, setSession, setStatus } = useAuthStore();
+  const setStatus = useAuthStore((state) => state.setStatus);
 
   return useMutation({
     mutationFn: ({
@@ -44,7 +37,7 @@ export const useSignUp = () => {
       first_name: string;
       last_name: string;
       company_name: string;
-      phone_number: string;
+      phone_number?: string;
       email: string;
       password: string;
     }) =>
@@ -57,11 +50,7 @@ export const useSignUp = () => {
         password,
       }),
     onMutate: () => setStatus("loading"),
-    onSuccess: async (data) => {
-      // Use the data returned from signUp instead of making additional API calls
-      setUser(data.user);
-      setSession(data.session);
-      setStatus(data.session ? "authenticated" : "unauthenticated");
+    onSuccess: async () => {
       await qc.invalidateQueries({ queryKey: ["session"] });
       await qc.invalidateQueries({ queryKey: ["user"] });
     },

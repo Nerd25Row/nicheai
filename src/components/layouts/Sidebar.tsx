@@ -10,15 +10,19 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import LogoComponent from "./LogoComponent";
 import { Button } from "../ui/button";
+import { useSignOut } from "../../features/auth/useAuthMutations";
 
 const Sidebar = () => {
   const location = useLocation();
-
   const isActive = (path: string) => {
     return (
       location.pathname === path ||
       (path === "/" && location.pathname === "/dashboard")
     );
+  };
+  const logoutMutation = useSignOut();
+  const handleLogout = () => {
+    logoutMutation.mutate();
   };
 
   return (
@@ -110,7 +114,10 @@ const Sidebar = () => {
               </span>
             </div>
           </div>
-          <div className="w-full lg:w-[216px] h-[48px] rotate-0 opacity-100 rounded-xl flex items-center justify-center gap-3 px-4 py-3">
+          <div
+            className="w-full lg:w-[216px] h-[48px] cursor-pointer rotate-0 opacity-100 rounded-xl flex items-center justify-center gap-3 px-4 py-3"
+            onClick={handleLogout}
+          >
             <div className="w-full lg:w-[216px] h-[48px] rotate-0 opacity-100 gap-4 rounded p-3 flex items-center">
               <div className="w-5 h-5 rotate-0 opacity-100 rounded relative">
                 <LogOut className="w-[16.96px] h-[17.92px] rotate-0 opacity-100 absolute top-[1.04px] left-[1.52px] text-[#B6BCCA]" />

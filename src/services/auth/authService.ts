@@ -19,6 +19,14 @@ export const signUp = async ({
   email,
   password,
 }: SignupProps): Promise<AuthData> => {
+  const { data: emailExists, error: emailExistsError } = await supabase.rpc(
+    "check_email_exists",
+    {
+      target_email: email,
+    }
+  );
+  if (emailExistsError) throw emailExistsError;
+  if (emailExists) throw new Error("Email Already Registered");
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -76,25 +84,19 @@ export const signInWithOAuth = async (
   return data;
 };
 
-export const emailExists = async (email: string): Promise<boolean> => {
-  const { data, error } = await supabase.rpc("check_email_exists", {
-    target_email: email,
-  });
-  if (error) throw error;
-  return data;
-};
 export const resendSignupEmail = async (email: string): Promise<AuthData> => {
   const { data, error } = await supabase.auth.resend({
     type: "signup",
     email,
-    
   });
   if (error) throw error;
   return data;
 };
 
 export const requestPasswordReset = async (email: string): Promise<any> => {
-  const { data, error } = await supabase.auth.resetPasswordForEmail(email,{redirectTo:'https://nicheai-six.vercel.app/auth/reset-password'});
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: "https://nicheai-six.vercel.app/auth/reset-password",
+  });
   if (error) throw error;
   return data;
 };
@@ -113,5 +115,3 @@ export async function resetPassword(
 
   return data;
 }
-
-
