@@ -44,7 +44,7 @@ const ResetPasswordPage = () => {
     setStatus("idle");
     setMessage("");
     try {
-      await resetPassword(password, token);
+      await resetPassword(password);
       setStatus("success");
       setMessage(
         "Your password has been successfully reset. You can now log in."
@@ -116,7 +116,7 @@ const ResetPasswordPage = () => {
                 />
 
                 <Button
-                  disabled={isSubmitting}
+                  disabled={isSubmitting ||!token}
                   type="submit"
                   className="w-full h-12 rounded-lg bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-bold text-base shadow-[inset_0px_-20px_20px_0px_#01FF013D] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200"
                 >

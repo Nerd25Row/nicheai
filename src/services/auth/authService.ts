@@ -102,8 +102,7 @@ export const requestPasswordReset = async (email: string): Promise<any> => {
 };
 
 export async function resetPassword(
-  password: string,
-  token?: string | null
+  password: string
 ): Promise<any> {
   if (!password) throw new Error("Password is required.");
 
