@@ -46,7 +46,7 @@ const LoginForm = () => {
   const loginSubmit = async (values: FormValues) => {
     try {
       await signIn(values);
-      // success: optionally navigate here
+      navigate("/");
     } catch (err: any) {
       const msg =
         err?.message ||

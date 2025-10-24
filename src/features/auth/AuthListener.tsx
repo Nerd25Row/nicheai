@@ -12,14 +12,14 @@ const AuthListener = () => {
       setStatus("loading");
       const { data } = await supabase.auth.getSession();
       setSession(data.session ?? null);
-      setUser(data.session ? await getUser() : null);
+      setUser(data.session?.user ?? null);
       setStatus(data.session ? "authenticated" : "unauthenticated");
     })();
 
     // Subscribe to auth state changes
     const { data: sub } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setSession(session ?? null);
-      setUser(session ? await getUser() : null);
+      setUser(session?.user ?? null);
       setStatus(session ? "authenticated" : "unauthenticated");
     });
 

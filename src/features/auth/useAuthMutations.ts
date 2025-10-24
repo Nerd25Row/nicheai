@@ -16,10 +16,11 @@ export const useSignIn = () => {
     mutationFn: ({ email, password }: { email: string; password: string }) =>
       signIn({email, password}),
     onMutate: () => setStatus("loading"),
-    onSuccess: async () => {
-      const [user, session] = await Promise.all([getUser(), getSession()]);
-      setUser(user);
-      setSession(session);
+    onSuccess: async (data) => {
+      // Use the data returned from signIn instead of making additional API calls
+      setUser(data.user);
+      setSession(data.session);
+      setStatus("authenticated");
       await qc.invalidateQueries({ queryKey: ["session"] });
       await qc.invalidateQueries({ queryKey: ["user"] });
     },
@@ -56,10 +57,11 @@ export const useSignUp = () => {
         password,
       }),
     onMutate: () => setStatus("loading"),
-    onSuccess: async () => {
-      const [user, session] = await Promise.all([getUser(), getSession()]);
-      setUser(user);
-      setSession(session);
+    onSuccess: async (data) => {
+      // Use the data returned from signUp instead of making additional API calls
+      setUser(data.user);
+      setSession(data.session);
+      setStatus(data.session ? "authenticated" : "unauthenticated");
       await qc.invalidateQueries({ queryKey: ["session"] });
       await qc.invalidateQueries({ queryKey: ["user"] });
     },

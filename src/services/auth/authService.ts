@@ -115,23 +115,3 @@ export async function resetPassword(
 }
 
 
-export async function confirmEmail(token: string): Promise<AuthData> {
-  if (!token) throw new Error("Verification token is required.");
-
-  // Since the /auth/v1/verify endpoint processes the token server-side,
-  // we check the user's verification status with getUser()
-  const { data: userData, error: userError } = await supabase.auth.getUser();
-  if (userError) throw userError;
-
-  const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
-  if (sessionError) throw sessionError;
-
-  if (!userData.user?.email_confirmed_at) {
-    throw new Error("Email verification failed or not yet completed.");
-  }
-
-  return {
-    user: userData.user,
-    session: sessionData.session,
-  };
-}
