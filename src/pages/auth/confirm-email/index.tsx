@@ -1,93 +1,214 @@
-import { useMemo, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { resendSignupEmail } from "../../../services/auth/authService";
+import { useEffect, useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { Alert } from "../../../components/ui/alert";
 import { Button } from "../../../components/ui/button";
 import BackToPage from "../../../components/layouts/BackToHomePage";
-type Status = "idle" | "success" | "error";
-const ConfirmEmailPage = () => {
-  const [params] = useSearchParams();
-  const email = useMemo(() => params.get("email")?.trim() ?? "", [params]);
+import {
+  confirmEmail,
+  resendSignupEmail,
+} from "../../../services/auth/authService";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../../../components/ui/form";
+import { Input } from "../../../components/ui/input";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
+type Status = "idle" | "loading" | "success" | "error";
+
+const formSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+const EmailConfirmationPage = () => {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showResendForm, setShowResendForm] = useState(false);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
 
-  const handleResend = async (email: string) => {
-    setStatus("idle");
-    setMessage("");
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { email: "" },
+  });
 
-    if (!email) {
-      setStatus("error");
-      setMessage("Email is required.");
-      return;
-    }
+  const { handleSubmit } = form;
 
+  useEffect(() => {
+    const verifyEmail = async () => {
+      setStatus("loading");
+      const token = searchParams.get("token");
+      const redirectTo = searchParams.get("redirect_to") || "/auth/login";
+
+      if (!token) {
+        setStatus("error");
+        setMessage("Invalid or missing verification token.");
+        return;
+      }
+
+      try {
+        await confirmEmail(token);
+        setStatus("success");
+        setMessage("Your email has been successfully verified! Redirecting...");
+        setTimeout(() => navigate(redirectTo), 3000);
+      } catch (err: any) {
+        setStatus("error");
+        setMessage(
+          err?.message ||
+            "Failed to verify email. Please try again or resend the verification email."
+        );
+      }
+    };
+
+    verifyEmail();
+  }, [searchParams, navigate]);
+
+  const onResendSubmit = async ({ email }: FormValues) => {
     try {
-      setIsSubmitting(true);
       await resendSignupEmail(email);
       setStatus("success");
-      setMessage("Confirmation email sent. Check your inbox (and spam).");
+      setMessage(
+        "Verification email resent! Please check your inbox (and spam folder)."
+      );
+      setShowResendForm(false);
     } catch (err: any) {
-      const msg =
-        err?.status === 429
-          ? "You’ve requested too many emails. Please wait a minute and try again."
-          : err?.message || "Could not resend confirmation email.";
       setStatus("error");
-      setMessage(msg);
-    } finally {
-      setIsSubmitting(false);
+      setMessage(
+        err?.message || "Failed to resend verification email. Please try again."
+      );
     }
   };
 
   return (
-    <div className="flex items-center justify-center w-[540px]  rotate-0 opacity-100 gap-[40px]">
-      <div className="flex flex-col items-center w-[540] h-[468px] rotate-0 opacity-100 gap-[16px]">
-        {/* Status banner */}
-        {status !== "idle" && message && (
-          <div
-            role="status"
-            aria-live="polite"
-            className={`mb-4 rounded-md px-3 py-2 text-sm ${
-              status === "success"
-                ? "border border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                : "border border-red-500/40 bg-red-500/10 text-red-400"
-            }`}
-          >
-            {message}
-          </div>
-        )}
-        <div className="flex flex-col items-center w-[540px] h-[404px] rotate-0 opacity-100 gap-8 rounded-2xl border border-[#393B41] p-12 bg-[#1D2027] shadow-[0px_15px_70px_-4px_#1018281A]">
-          <div className="flex items-center justify-center w-[120px] h-[120px] rotate-0 opacity-100 gap-[15px] rounded-[93.75px] p-[15px] bg-[#2E3137]">
-            <div className="flex items-center justify-center w-[45px] h-[45px] rotate-0 opacity-100">
-              <img src="/assets/images/email.svg" />
-            </div>
-          </div>
-          <div className="flex flex-col items-center w-[444px] h-[156px] rotate-0 opacity-100 gap-8">
-            <div className="flex flex-col items-center w-[444px] h-[76px] rotate-0 opacity-100 gap-4">
-              <h1 className="w-[229px] h-[36px] rotate-0 opacity-100 font-inter font-bold text-[28px] leading-[36px] tracking-[-0.02em] text-center text-white">
-                Check Your Email
-              </h1>
+    <div className="min-h-screen flex items-center justify-center px-4 py-8">
+      <div className="w-full max-w-md space-y-6">
+        <div className="rounded-2xl bg-[#1D2027] border border-[#393B41] shadow-xl p-6 sm:p-8 md:p-12">
+          <div className="text-center space-y-6">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              Email Verification
+            </h1>
+            <p className="text-sm sm:text-base text-[#B6BCCA]">
+              {status === "loading"
+                ? "Processing your email verification..."
+                : status === "success"
+                ? "Email verified successfully!"
+                : "Verifying your email address"}
+            </p>
 
-              <p className="w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-normal text-[16px] leading-[24px] tracking-[0em] text-center text-[#B6BCCA]">
-                Check your email to verify your account
-              </p>
-            </div>
+            {/* Status Message */}
+            {status !== "idle" && (
+              <Alert
+                role="status"
+                aria-live="polite"
+                className={`flex ounded-md px-4 py-2 text-sm font-medium transition-opacity duration-200 ${
+                  status === "loading"
+                    ? "border border-[#00FFFF]/40 bg-[#00FFFF]/10 text-[#00FFFF]"
+                    : status === "success"
+                    ? "border border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
+                    : "border border-red-500/40 bg-red-500/10 text-red-400"
+                }`}
+              >
+                {status === "loading" ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <svg
+                      className="animate-spin h-5 w-5 text-[#00FFFF]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      ></path>
+                    </svg>
+                    Processing...
+                  </div>
+                ) : (
+                  message
+                )}
+              </Alert>
+            )}
 
-            <Button
-              disabled={isSubmitting}
-              onClick={() => handleResend(email)}
-              className="w-[444px] h-[48px] cursor-pointer rotate-0 opacity-100 gap-2 rounded-lg px-6 bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-bold shadow-[inset_0px_-20px_20px_0px_#01FF013D] disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
-            >
-              <span className="w-[198px] h-[24px] rotate-0 opacity-100 font-inter font-bold text-[16px] leading-[24px] tracking-[0em] align-middle text-[#1D2027]">
-                {isSubmitting ? "Resending..." : "Resend verification email"}
-              </span>
-            </Button>
+            {/* Resend Email Form */}
+            {status === "error" && showResendForm && (
+              <Form {...form}>
+                <form
+                  onSubmit={handleSubmit(onResendSubmit)}
+                  className="space-y-4"
+                >
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-[#CACFDA] text-sm sm:text-base font-medium">
+                          Email Address
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Enter your email"
+                            className="bg-[#2E3137] text-[#B6BCCA] placeholder:text-[#B6BCCA]/70 rounded-xl px-4 py-3 focus-visible:ring-2 focus-visible:ring-[#00FFFF]/50 transition-all"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage className="text-red-400 text-xs mt-1" />
+                      </FormItem>
+                    )}
+                  />
+                  <Button
+                    type="submit"
+                    className="w-full h-12 rounded-lg bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-bold text-base shadow-[inset_0_-20px_20px_0_#01FF013D] transition-all duration-200"
+                  >
+                    Resend Verification Email
+                  </Button>
+                </form>
+              </Form>
+            )}
+
+            {/* Action Buttons */}
+            {status === "error" && !showResendForm && (
+              <Button
+                onClick={() => setShowResendForm(true)}
+                className="w-full h-12 rounded-lg bg-[#2E3137] hover:bg-[#2E3137]/80 text-white font-medium transition-all duration-200"
+              >
+                Resend Verification Email
+              </Button>
+            )}
+            {status === "success" && (
+              <Button
+                onClick={() =>
+                  navigate(searchParams.get("redirect_to") || "/auth/login")
+                }
+                className="w-full h-12 rounded-lg bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-bold text-base shadow-[inset_0_-20px_20px_0_#01FF013D] transition-all duration-200"
+              >
+                Go to Login
+              </Button>
+            )}
           </div>
         </div>
-        <BackToPage title="Back to login" route="/auth/login" />
+        <div className="flex justify-center">
+          <BackToPage title="Back to homepage" route="/" />
+        </div>
       </div>
     </div>
   );
 };
 
-export default ConfirmEmailPage;
+export default EmailConfirmationPage;

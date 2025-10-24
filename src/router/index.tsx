@@ -13,13 +13,13 @@ import LoginPage from "../pages/auth/login";
 import SignupPage from "../pages/auth/signup";
 import ForgotPasswordPage from "../pages/auth/forgot-password";
 import ResetPasswordPage from "../pages/auth/reset-password";
-import ConfirmEmailPage from "../pages/auth/confirm-email";
 
 // Error page
 import ErrorPage from "../pages/errors";
 import { AuthLayout } from "../components";
 import ProtectedRoute from "./ProtectedRoute";
-
+import ResendEmailPage from "../pages/auth/resend-email";
+import EmailConfirmationPage  from "../pages/auth/confirm-email";
 const router = createBrowserRouter([
   // Auth routes
   {
@@ -30,13 +30,14 @@ const router = createBrowserRouter([
       { path: "signup", element: <SignupPage /> },
       { path: "forgot-password", element: <ForgotPasswordPage /> },
       { path: "reset-password", element: <ResetPasswordPage /> },
-      { path: "confirm-email", element: <ConfirmEmailPage /> },
+      { path: "resend-email", element: <ResendEmailPage /> },
+      { path: "confirm-email", element: <EmailConfirmationPage /> },
     ],
   },
 
   // Protected (app) routes
   {
-    element: <ProtectedRoute />, 
+    element: <ProtectedRoute />,
     children: [
       {
         path: "/",
