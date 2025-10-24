@@ -12,6 +12,7 @@ const ImageUpload: React.FC = () => {
     console.log("Files dropped:", acceptedFiles);
     setUploadedFiles(acceptedFiles);
     setIsProcessing(true);
+    console.log(uploadedFiles);
 
     // Simulate processing time
     setTimeout(() => {

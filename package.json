@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "bash -c 'unset npm_config_prefix && source ~/.nvm/nvm.sh && nvm use 20 && vite'",
-    "build": "bash -c 'unset npm_config_prefix && source ~/.nvm/nvm.sh && nvm use 20 && tsc -b && vite build'",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
     "build:safe": "bash build.sh",
     "lint": "eslint .",
-    "preview": "bash -c 'unset npm_config_prefix && source ~/.nvm/nvm.sh && nvm use 20 && vite preview'"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

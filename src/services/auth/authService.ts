@@ -98,10 +98,7 @@ export const requestPasswordReset = async (email: string): Promise<any> => {
   return data;
 };
 
-export async function resetPassword(
-  password: string,
-  token?: string | null
-): Promise<any> {
+export async function resetPassword(password: string): Promise<any> {
   if (!password) throw new Error("Password is required.");
 
   const { data, error } = await supabase.auth.updateUser({ password });
