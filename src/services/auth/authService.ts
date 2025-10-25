@@ -37,7 +37,7 @@ export const signUp = async ({
         company_name,
         phone_number,
       },
-      emailRedirectTo: `${window.location.origin}/auth/confirm-email`,
+      emailRedirectTo: `${window.location.origin}/auth/confirm-email`
     },
   });
   if (error) throw error;
@@ -80,7 +80,12 @@ export const getUser = async (): Promise<User | null> => {
 export const signInWithOAuth = async (
   provider: "google" | "github"
 ): Promise<any> => {
-  const { data, error } = await supabase.auth.signInWithOAuth({ provider });
+  const { data, error } = await supabase.auth.signInWithOAuth({ 
+    provider,
+    options: {
+      redirectTo: `${window.location.origin}/`
+    }
+  });
   if (error) throw error;
   return data;
 };
@@ -90,8 +95,8 @@ export const resendSignupEmail = async (email: string): Promise<AuthData> => {
     type: "signup",
     email,
     options: {
-      emailRedirectTo: `${window.location.origin}/auth/confirm-email`,
-    },
+      emailRedirectTo: `${window.location.origin}/auth/confirm-email`
+    }
   });
   if (error) throw error;
   return data;
@@ -99,13 +104,15 @@ export const resendSignupEmail = async (email: string): Promise<AuthData> => {
 
 export const requestPasswordReset = async (email: string): Promise<any> => {
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${window.location.origin}/auth/reset-password`,
+    redirectTo: "https://nicheai-six.vercel.app/auth/reset-password",
   });
   if (error) throw error;
   return data;
 };
 
-export async function resetPassword(password: string): Promise<any> {
+export async function resetPassword(
+  password: string
+): Promise<any> {
   if (!password) throw new Error("Password is required.");
 
   const { data, error } = await supabase.auth.updateUser({ password });
@@ -117,19 +124,18 @@ export async function resetPassword(password: string): Promise<any> {
   return data;
 }
 
+// Email confirmation is handled automatically by Supabase when the user clicks the link
+// We just need to check the current session status
 export async function checkEmailConfirmationStatus() {
-  const {
-    data: { session },
-    error,
-  } = await supabase.auth.getSession();
-
+  const { data: { session }, error } = await supabase.auth.getSession();
+  
   if (error) {
     throw error;
   }
-
+  
   return {
     isConfirmed: !!session,
     session,
-    user: session?.user || null,
+    user: session?.user || null
   };
 }

@@ -18,8 +18,12 @@ import LogoComponent from "../layouts/LogoComponent";
 import { Alert } from "../ui/alert";
 import { useNavigate } from "react-router-dom";
 import BackToPage from "../layouts/BackToHomePage";
-import { useSignIn } from "../../features/auth/useAuthMutations";
+import {
+  useOAuthSignIn,
+  useSignIn,
+} from "../../features/auth/useAuthMutations";
 import SignupOptions from "./SignupOptions";
+import { useAuthStore } from "../../store/auth/authStore";
 
 const formSchema = z.object({
   email: z.email("Please enter valid email"),
@@ -44,9 +48,16 @@ const LoginForm = () => {
     setError,
     formState: { errors },
   } = form;
-
+  const oauthMutation = useOAuthSignIn();
+  const { status } = useAuthStore();
   const loginMutation = useSignIn();
+  // Handle Google authentication
+  const handleGoogleAuth = () => {
+    oauthMutation.mutate("google");
+  };
 
+  // Check if OAuth is currently loading
+  const isGoogleLoading = status === "oauth_loading";
   const loginSubmit = (values: FormValues) => {
     loginMutation.mutate(values, {
       onSuccess: () => {
@@ -191,8 +202,16 @@ const LoginForm = () => {
           {/* socials */}
           <div className="w-full sm:w-[380px] lg:w-[444px] h-[48px] gap-2 sm:gap-3 lg:gap-4 opacity-100 flex items-center justify-between rounded">
             {/* Google */}
-            <Button className="flex-1 min-w-0 h-[48px] px-2 sm:px-4 lg:px-6 rounded-lg bg-[#2E3137] border border-[#4D5057] shadow-[0px_1px_2px_0px_#1018280D] flex items-center justify-center gap-2 opacity-100">
-              <FaGoogle className="w-[20px] h-[20px] text-[#FFFFFF]" />
+            <Button
+              onClick={handleGoogleAuth}
+              disabled={isGoogleLoading}
+              className="flex-1 min-w-0 h-[48px] px-2 sm:px-4 lg:px-6 rounded-lg bg-[#2E3137] border border-[#4D5057] shadow-[0px_1px_2px_0px_#1018280D] flex items-center justify-center gap-2 opacity-100 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {isGoogleLoading ? (
+                <div className="w-[20px] h-[20px] border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <FaGoogle className="w-[20px] h-[20px] text-[#FFFFFF]" />
+              )}
             </Button>
             {/* apple */}
             <Button className="flex-1 min-w-0 h-[48px] px-2 sm:px-4 lg:px-6 rounded-lg bg-[#2E3137] border border-[#4D5057] shadow-[0px_1px_2px_0px_#1018280D] flex items-center justify-center gap-2 opacity-100">

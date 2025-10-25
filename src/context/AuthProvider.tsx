@@ -41,14 +41,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       async (event, session) => {
         console.log('Auth state changed:', event, session);
         
-        if (session) {
+        // Handle OAuth sign in success
+        if (event === 'SIGNED_IN' && session) {
           setUser(session.user);
           setSession(session);
           setStatus('authenticated');
-        } else {
+        } else if (event === 'SIGNED_OUT') {
           setUser(null);
           setSession(null);
           setStatus('unauthenticated');
+        } else if (event === 'TOKEN_REFRESHED' && session) {
+          setUser(session.user);
+          setSession(session);
+          setStatus('authenticated');
         }
       }
     );
