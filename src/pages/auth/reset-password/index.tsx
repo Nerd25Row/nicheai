@@ -61,7 +61,7 @@ const ResetPasswordPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-8 ">
-      <div className="w-full max-w-md space-y-6">
+      <div className="flex flex-col items-center justify-center w-full max-w-md space-y-6">
         {status !== "idle" && message && (
           <div
             role="status"

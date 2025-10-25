@@ -9,9 +9,17 @@ import {
   Menu,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
 import { Button } from "../ui/button";
 import LogoComponent from "./LogoComponent";
+import { useSignOut } from "../../features/auth/useAuthMutations";
 
 const MobileNavigation = () => {
   const location = useLocation();
@@ -22,6 +30,10 @@ const MobileNavigation = () => {
       (path === "/" && location.pathname === "/dashboard")
     );
   };
+  const logoutMutation = useSignOut();
+  const handleLogout = () => {
+    logoutMutation.mutate();
+  };
 
   return (
     <Sheet>
@@ -30,21 +42,22 @@ const MobileNavigation = () => {
           <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[280px] bg-[#2E3137] border-[#4D5057]">
+      <SheetContent
+        side="left"
+        className="w-[280px] bg-[#2E3137] border-[#4D5057]"
+      >
         <SheetHeader>
-          <SheetTitle className="text-white">Navigation</SheetTitle>
-          <SheetDescription className="text-[#B6BCCA]">
-            Navigate through your dashboard
-          </SheetDescription>
-        </SheetHeader>
-        
-        <div className="flex flex-col h-full justify-between mt-8">
-          <div className="flex flex-col gap-4">
+          <SheetTitle className="text-white">
+            {" "}
             {/* Logo */}
             <div className="mb-6">
               <LogoComponent />
             </div>
-            
+          </SheetTitle>
+        </SheetHeader>
+
+        <div className="flex flex-col h-full justify-between mt-8">
+          <div className="flex flex-col gap-4">
             {/* Navigation Items */}
             <div className="flex flex-col gap-3">
               <Link to="/" className="block">
@@ -111,7 +124,7 @@ const MobileNavigation = () => {
               </Link>
             </div>
           </div>
-          
+
           {/* Bottom Section */}
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-3">
@@ -121,14 +134,17 @@ const MobileNavigation = () => {
                   Settings
                 </span>
               </div>
-              <div className="w-full h-[48px] rounded-xl flex items-center gap-3 px-4 py-3">
+              <div
+                className="w-full h-[48px] cursor-pointer rounded-xl flex items-center gap-3 px-4 py-3"
+                onClick={handleLogout}
+              >
                 <LogOut className="w-5 h-5 text-[#B6BCCA]" />
                 <span className="font-inter font-medium text-base text-[#B6BCCA]">
                   Log out
                 </span>
               </div>
             </div>
-            
+
             {/* Theme Toggle */}
             <div className="w-full h-[48px] rounded-xl bg-[#2E3137] flex">
               <Button className="flex-1 h-[48px] gap-2 rounded-xl bg-[#4D5057] text-lg">
