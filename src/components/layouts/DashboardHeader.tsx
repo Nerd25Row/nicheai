@@ -1,4 +1,5 @@
 import { Button } from "../ui/button";
+import DashboardHeaderInfo from "./DashboardHeaderIntro";
 import MobileNavigation from "./MobileNavigation";
 import ProfileAvatar from "./ProfileAvatar";
 
@@ -7,21 +8,11 @@ const DashboardHeader = () => {
     <div className="sticky top-0 z-50 w-full h-[112px] rotate-0 opacity-100 gap-6 bg-[#1E2128] p-4 lg:p-10">
       <div className="flex items-center justify-between w-full h-[64px] rotate-0 opacity-100 gap-4 lg:gap-16">
         {/* Mobile Navigation + INTRO */}
-        <div className="flex items-center gap-4">
-          {/* Mobile Navigation - only visible on small screens */}
+        <div className="flex items-center gap-4 min-w-0">
           <div className="lg:hidden">
             <MobileNavigation />
           </div>
-          
-          {/* INTRO */}
-          <div className="flex flex-col w-auto h-[64px] rotate-0 opacity-100 gap-2">
-            <h1 className="w-auto h-[32px] rotate-0 opacity-100 font-inter font-bold text-xl lg:text-2xl leading-8 tracking-[-0.01em] text-white">
-              AI Image Processing Dashboard
-            </h1>
-            <p className="w-auto h-[24px] rotate-0 opacity-100 font-inter font-normal text-sm lg:text-base leading-6 tracking-normal text-[#B6BCCA] hidden sm:block">
-              Upload and process your images with advanced AI models
-            </p>
-          </div>
+          <DashboardHeaderInfo />
         </div>
         {/* PROFILE SELECTION*/}
         <div className="flex items-center w-auto lg:w-[368.52px] h-[48px] rotate-0 opacity-100 gap-4 lg:gap-8">
@@ -48,7 +39,7 @@ const DashboardHeader = () => {
               </span>
             </Button>
           </div>
-          
+
           {/* Mobile: Compact profile section */}
           <div className="flex lg:hidden items-center gap-2">
             <Button className="h-[32px] px-3 text-sm bg-[#00FFFF] shadow-[0px_-20px_20px_0px_#01FF013D_inset]">
@@ -57,8 +48,8 @@ const DashboardHeader = () => {
               </span>
             </Button>
           </div>
-          
-         <ProfileAvatar/>
+
+          <ProfileAvatar />
         </div>
       </div>
     </div>
