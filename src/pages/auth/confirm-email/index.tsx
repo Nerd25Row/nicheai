@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import BackToPage from "../../../components/layouts/BackToHomePage";
 import { checkEmailConfirmationStatus } from "../../../services/auth/authService";
 
 type Status = "loading" | "success" | "error" | "idle";
 
 const ConfirmEmailPage = () => {
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [status, setStatus] = useState<Status>("loading");
   const [message, setMessage] = useState("");
@@ -14,10 +13,19 @@ const ConfirmEmailPage = () => {
   useEffect(() => {
     const handleEmailConfirmation = async () => {
       try {
-        // Check for error parameters first
-        const error = searchParams.get("error");
-        const error_description = searchParams.get("error_description");
+        const hash = window.location.hash;
+        const urlParams = new URLSearchParams(hash.substring(1)); 
+        
+        const access_token = urlParams.get("access_token");
+        const error = urlParams.get("error");
+        const error_description = urlParams.get("error_description");
+        const type = urlParams.get("type");
 
+        console.log("URL fragment:", hash);
+        console.log("Access token:", access_token);
+        console.log("Type:", type);
+
+        // If there's an error in the URL fragment
         if (error) {
           setStatus("error");
           setMessage(error_description || "Email confirmation failed");
@@ -27,10 +35,19 @@ const ConfirmEmailPage = () => {
           return;
         }
 
-        // Wait a moment for Supabase to process the confirmation
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // If we have an access token, the confirmation was successful
+        if (access_token && type === "signup") {
+          setStatus("success");
+          setMessage("Email confirmed successfully! Redirecting to login...");
+          
+          // Redirect to login page after 2 seconds
+          setTimeout(() => {
+            navigate("/auth/login");
+          }, 2000);
+          return;
+        }
 
-        // Check if the email confirmation was successful
+        // If no access token, check session status
         const { isConfirmed, user } = await checkEmailConfirmationStatus();
         
         if (isConfirmed && user) {
@@ -62,7 +79,7 @@ const ConfirmEmailPage = () => {
     };
 
     handleEmailConfirmation();
-  }, [searchParams, navigate]);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-8">
