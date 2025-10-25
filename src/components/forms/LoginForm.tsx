@@ -19,6 +19,7 @@ import { Alert } from "../ui/alert";
 import { useNavigate } from "react-router-dom";
 import BackToPage from "../layouts/BackToHomePage";
 import { useSignIn } from "../../features/auth/useAuthMutations";
+import SignupOptions from "./SignupOptions";
 
 const formSchema = z.object({
   email: z.email("Please enter valid email"),
@@ -28,6 +29,7 @@ const formSchema = z.object({
 });
 type FormValues = z.infer<typeof formSchema>;
 const LoginForm = () => {
+  const [showSignupOptions, setShowSignupOptions] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -42,7 +44,7 @@ const LoginForm = () => {
     setError,
     formState: { errors },
   } = form;
-  
+
   const loginMutation = useSignIn();
 
   const loginSubmit = (values: FormValues) => {
@@ -214,7 +216,7 @@ const LoginForm = () => {
             <Button
               className="cursor-pointer h-auto sm:h-12 px-2 rounded-md gap-2 flex items-center justify-center opacity-100"
               onClick={() => {
-                navigate("/auth/signup");
+                setShowSignupOptions(true);
               }}
             >
               <span className="text-[#72E6E5] text-sm sm:text-[16px] leading-5 sm:leading-6 font-inter font-bold opacity-100 text-center align-middle">
@@ -224,6 +226,10 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
+      <SignupOptions
+        isOpen={showSignupOptions}
+        onClose={() => setShowSignupOptions(false)}
+      />
       <div>
         <BackToPage title="Back to homepage" route="/" />
       </div>
