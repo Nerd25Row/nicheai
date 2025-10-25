@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../../../components/ui/input";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+// import { useSearchParams } from "react-router-dom";
 import { resetPassword } from "../../../services/auth/authService";
 
 const formSchema = z.object({
@@ -24,8 +24,8 @@ type FormValues = z.infer<typeof formSchema>;
 type Status = "idle" | "success" | "error";
 
 const ResetPasswordPage = () => {
-  const [params] = useSearchParams();
-  const token = params.get("token");
+  // const [params] = useSearchParams();
+  // const token = params.get("token");
 
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
@@ -116,7 +116,7 @@ const ResetPasswordPage = () => {
                 />
 
                 <Button
-                  disabled={isSubmitting || !token}
+                  disabled={isSubmitting}
                   type="submit"
                   className="w-full h-12 rounded-lg bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-bold text-base shadow-[inset_0px_-20px_20px_0px_#01FF013D] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200"
                 >
