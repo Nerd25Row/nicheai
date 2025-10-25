@@ -1,6 +1,6 @@
-import { ChevronDown } from "lucide-react";
 import { Button } from "../ui/button";
 import MobileNavigation from "./MobileNavigation";
+import ProfileAvatar from "./ProfileAvatar";
 
 const DashboardHeader = () => {
   return (
@@ -58,18 +58,7 @@ const DashboardHeader = () => {
             </Button>
           </div>
           
-          <div className="flex items-center w-auto lg:w-[68px] h-[44px] rotate-0 opacity-100 gap-2">
-            {/* avatar */}
-            <div className="w-8 h-8 lg:w-11 lg:h-11 rotate-0 opacity-100">
-              <img
-                src="/assets/images/profile_avatar.png"
-                className="rounded-full w-full h-full object-cover"
-              />
-            </div>
-            <div className="w-4 h-4 rotate-0 opacity-100 relative hidden lg:block">
-              <ChevronDown className="w-[10.56px] h-[4.73px] rotate-0 opacity-100 absolute top-[5.97px] left-[2.72px] border-[1.5px] border-[#B6BCCA] text-[#B6BCCA]" />
-            </div>
-          </div>
+         <ProfileAvatar/>
         </div>
       </div>
     </div>
