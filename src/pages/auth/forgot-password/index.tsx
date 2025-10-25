@@ -57,7 +57,7 @@ const ForgotPasswordPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-8 ">
-      <div className="w-full max-w-md space-y-6">
+      <div className="flex flex-col items-center justify-between w-full max-w-md space-y-6">
         {/* Status Banner - Only renders when needed */}
         {status !== "idle" && message && (
           <div
@@ -133,6 +133,7 @@ const ForgotPasswordPage = () => {
 };
 
 export default ForgotPasswordPage;
+
 
 
 

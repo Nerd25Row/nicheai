@@ -37,6 +37,7 @@ export const signUp = async ({
         company_name,
         phone_number,
       },
+      emailRedirectTo: `${window.location.origin}/auth/confirm-email`
     },
   });
   if (error) throw error;
@@ -88,6 +89,9 @@ export const resendSignupEmail = async (email: string): Promise<AuthData> => {
   const { data, error } = await supabase.auth.resend({
     type: "signup",
     email,
+    options: {
+      emailRedirectTo: `${window.location.origin}/auth/confirm-email`
+    }
   });
   if (error) throw error;
   return data;
@@ -113,4 +117,18 @@ export async function resetPassword(
   }
 
   return data;
+}
+
+export async function checkEmailConfirmationStatus() {
+  const { data: { session }, error } = await supabase.auth.getSession();
+  
+  if (error) {
+    throw error;
+  }
+  
+  return {
+    isConfirmed: !!session,
+    session,
+    user: session?.user || null
+  };
 }
