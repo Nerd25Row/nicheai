@@ -250,7 +250,7 @@ const Dashboard: React.FC = () => {
             <div className="relative h-40 sm:h-48 rounded-[8px] overflow-hidden bg-[url('/assets/images/segmentation.svg')] bg-cover bg-no-repeat bg-center flex items-end justify-center">
               <img
                 src="/assets/images/segmentation_generated.png"
-                className="w-40 h-40 object-contain"
+                className="w-40 h-40 object-cover"
                 alt="Segmentation preview"
               />
             </div>
@@ -271,7 +271,7 @@ const Dashboard: React.FC = () => {
             <div className="relative h-40 sm:h-48 rounded-[8px] overflow-hidden bg-[#111825] flex items-end justify-center">
               <img
                 src="/assets/images/fusion.png"
-                className="w-40 h-40 object-contain"
+                className="w-40 h-40 object-cover"
                 alt="Fusion preview"
               />
             </div>
