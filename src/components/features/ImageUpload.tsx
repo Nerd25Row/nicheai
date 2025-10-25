@@ -7,9 +7,8 @@ const ImageUpload: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
-
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    console.log("Files dropped:", acceptedFiles);
+    console.log("Files dropped:", acceptedFiles,uploadedFiles);
     setUploadedFiles(acceptedFiles);
     setIsProcessing(true);
 
