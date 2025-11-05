@@ -1,4 +1,4 @@
-import UploadImageResult from '../../../../../components/features/UploadImageResult';
+import UploadImageResult from '../../../../../components/UploadImageResult';
 
 const UploadImageResultPage = () => {
   return <UploadImageResult />;

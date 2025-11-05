@@ -1,4 +1,4 @@
-import Models from '../../../components/features/Models';
+import Models from '../../../components/Models';
 
 const ModelsPage = () => {
   return <Models />;

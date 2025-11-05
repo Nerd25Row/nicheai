@@ -18,7 +18,7 @@ import {
 } from "../ui/sheet";
 import { Button } from "../ui/button";
 import LogoComponent from "./LogoComponent";
-import { useSignOut } from "../../features/auth/useAuthMutations";
+import { useSignOutMutation } from "../../features/auth/useAuthMutations";
 
 const MobileNavigation = () => {
   const location = useLocation();
@@ -29,7 +29,7 @@ const MobileNavigation = () => {
       (path === "/" && location.pathname === "/dashboard")
     );
   };
-  const logoutMutation = useSignOut();
+  const logoutMutation = useSignOutMutation();
   const handleLogout = () => {
     logoutMutation.mutate();
   };
@@ -52,6 +52,7 @@ const MobileNavigation = () => {
             <div className="mb-6">
               <LogoComponent />
             </div>
+
           </SheetTitle>
         </SheetHeader>
 
@@ -124,6 +125,8 @@ const MobileNavigation = () => {
             </div>
           </div>
 
+
+
           {/* Bottom Section */}
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-3">
@@ -133,17 +136,18 @@ const MobileNavigation = () => {
                   Settings
                 </span>
               </div>
+
               <div
                 className="w-full h-[48px] cursor-pointer rounded-xl flex items-center gap-3 px-4 py-3"
                 onClick={handleLogout}
               >
+
                 <LogOut className="w-5 h-5 text-[#B6BCCA]" />
                 <span className="font-inter font-medium text-base text-[#B6BCCA]">
                   Log out
                 </span>
               </div>
             </div>
-
             {/* Theme Toggle */}
             <div className="w-full h-[48px] rounded-xl bg-[#2E3137] flex">
               <Button className="flex-1 h-[48px] gap-2 rounded-xl bg-[#4D5057] text-lg">

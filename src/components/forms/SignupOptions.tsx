@@ -4,7 +4,7 @@ import { Mail, X } from "lucide-react";
 import LogoComponent from "../layouts/LogoComponent";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useOAuthSignIn } from "../../features/auth/useAuthMutations";
+import { useOAuthSignInMutation } from "../../features/auth/useAuthMutations";
 import { useAuthStore } from "../../store/auth/authStore";
 
 interface SignupOptionsProps {
@@ -14,7 +14,7 @@ interface SignupOptionsProps {
 
 const SignupOptions = ({ isOpen, onClose }: SignupOptionsProps) => {
   const navigate = useNavigate();
-  const oauthMutation = useOAuthSignIn();
+  const oauthMutation = useOAuthSignInMutation();
   const { status } = useAuthStore();
 
   // Handle Google authentication
@@ -141,6 +141,7 @@ const SignupOptions = ({ isOpen, onClose }: SignupOptionsProps) => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

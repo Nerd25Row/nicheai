@@ -2,7 +2,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "../../store/auth/authStore";
 import { signIn, signInWithOAuth, signOut, signUp } from "../../services/auth/authService";
 
-export const useSignIn = () => {
+
+export const useSignInMutation = () => {
   const qc = useQueryClient();
   const { setUser, setSession, setStatus } = useAuthStore();
 
@@ -16,12 +17,13 @@ export const useSignIn = () => {
       setStatus("authenticated");
       await qc.invalidateQueries({ queryKey: ["session"] });
       await qc.invalidateQueries({ queryKey: ["user"] });
+      await qc.invalidateQueries({ queryKey: ["userProfile"] });
     },
     onError: () => setStatus("unauthenticated"),
   });
 };
 
-export const useSignUp = () => {
+export const useSignUpMutation = () => {
   const qc = useQueryClient();
   const setStatus = useAuthStore((state) => state.setStatus);
 
@@ -53,12 +55,13 @@ export const useSignUp = () => {
     onSuccess: async () => {
       await qc.invalidateQueries({ queryKey: ["session"] });
       await qc.invalidateQueries({ queryKey: ["user"] });
+      await qc.invalidateQueries({ queryKey: ["userProfile"] });
     },
     onError: () => setStatus("unauthenticated"),
   });
 };
 
-export const useSignOut = () => {
+export const useSignOutMutation = () => {
   const qc = useQueryClient();
   const { reset } = useAuthStore();
 
@@ -68,11 +71,13 @@ export const useSignOut = () => {
       reset();
       await qc.invalidateQueries({ queryKey: ["session"] });
       await qc.invalidateQueries({ queryKey: ["user"] });
+      await qc.invalidateQueries({ queryKey: ["userProfile"] });
     },
   });
 };
 
-export const useOAuthSignIn = () => {
+
+export const useOAuthSignInMutation = () => {
   const { setStatus } = useAuthStore();
 
   return useMutation({
@@ -91,3 +96,4 @@ export const useOAuthSignIn = () => {
     },
   });
 };
+

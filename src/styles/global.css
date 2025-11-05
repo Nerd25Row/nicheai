@@ -124,25 +124,13 @@
   }
 }
 
-/* Autofill override — WebKit (Chrome, Edge, Brave, etc.) */
 input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  /* Paint your own background */
-  -webkit-box-shadow: 0 0 0px 1000px #2E3137 inset !important;
-  box-shadow: 0 0 0px 1000px #2E3137 inset !important;
-
-  /* Match your text color */
-  -webkit-text-fill-color: #B6BCCA !important;
-  caret-color: #B6BCCA;
-
-  /* Prevent the fade-in of the default bg */
-  transition: background-color 9999s ease-out 0s;
-}
-
-/* Firefox */
-input:-moz-autofill {
-  box-shadow: 0 0 0px 1000px #2E3137 inset !important;
-  -moz-text-fill-color: #B6BCCA !important;
-  caret-color: #B6BCCA;
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #fff !important;
+  caret-color: #fff;
+  background-clip: padding-box;
+  /* Replace the yellow overlay with your bg color and preserve the border */
+  -webkit-box-shadow: 0 0 0 1000px #4D5057 inset !important;
+          box-shadow: 0 0 0 1000px #4D5057 inset !important;
+  border: 1px solid #4D5057 !important;
 }

@@ -2,6 +2,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuthStore } from "../store/auth/authStore";
 
+
 const ProtectedRoute = () => {
   const { session, status } = useAuthStore();
   

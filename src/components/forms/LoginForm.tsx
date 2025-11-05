@@ -19,11 +19,12 @@ import { Alert } from "../ui/alert";
 import { useNavigate } from "react-router-dom";
 import BackToPage from "../layouts/BackToHomePage";
 import {
-  useOAuthSignIn,
-  useSignIn,
+  useOAuthSignInMutation,
+  useSignInMutation,
 } from "../../features/auth/useAuthMutations";
 import SignupOptions from "./SignupOptions";
 import { useAuthStore } from "../../store/auth/authStore";
+
 
 const formSchema = z.object({
   email: z.email("Please enter valid email"),
@@ -48,9 +49,9 @@ const LoginForm = () => {
     setError,
     formState: { errors },
   } = form;
-  const oauthMutation = useOAuthSignIn();
+  const oauthMutation = useOAuthSignInMutation();
   const { status } = useAuthStore();
-  const loginMutation = useSignIn();
+  const loginMutation = useSignInMutation();
   // Handle Google authentication
   const handleGoogleAuth = () => {
     oauthMutation.mutate("google");
@@ -78,6 +79,7 @@ const LoginForm = () => {
         }
       },
     });
+
   };
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-[90%] sm:max-w-md lg:max-w-[540px] opacity-100 gap-6 sm:gap-8 lg:gap-[40px] py-4">

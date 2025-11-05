@@ -25,7 +25,9 @@ import { Alert } from "../ui/alert";
 import { useNavigate } from "react-router-dom";
 import BackToPage from "../layouts/BackToHomePage";
 import { useState } from "react";
-import { useSignUp } from "../../features/auth/useAuthMutations";
+
+import { useSignUpMutation } from "../../features/auth/useAuthMutations";
+
 const formSchema = z.object({
   first_name: z
     .string()
@@ -51,7 +53,6 @@ type FormValues = z.infer<typeof formSchema>;
 const SignupForm = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -69,7 +70,7 @@ const SignupForm = () => {
     formState: { errors },
   } = form;
   
-  const signupMutation = useSignUp();
+  const signupMutation = useSignUpMutation();
 
   const submitSignup = async (values: FormValues) => {
     signupMutation.mutate(values, {
@@ -259,6 +260,7 @@ const SignupForm = () => {
                         <div className="relative flex w-full rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
                           <Input
                             type={showPassword ? "text" : "password"}
+
                             placeholder="Create your password"
                             className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
                             {...field}

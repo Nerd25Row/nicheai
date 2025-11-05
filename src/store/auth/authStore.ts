@@ -5,6 +5,7 @@ type AuthState = {
   user: User | null;
   session: Session | null;
   status: "idle" | "loading" | "authenticated" | "unauthenticated" | "oauth_loading";
+
   setUser: (user: User | null) => void;
   setSession: (session: Session | null) => void;
   setStatus: (s: AuthState["status"]) => void;

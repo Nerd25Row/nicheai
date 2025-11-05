@@ -3,12 +3,11 @@ export { default as DashboardLayout } from './layouts/DashboardLayout';
 export { default as AuthLayout } from './layouts/AuthLayout';
 
 // Features
-export { default as Dashboard } from './features/Dashboard';
-export { default as Models } from './features/Models';
-export { default as Gallery } from './features/Gallery';
-export { default as ImageUpload } from './features/ImageUpload';
-export { default as ProcessingImage } from './features/ProcessingImage';
-export { default as UploadImageResult } from './features/UploadImageResult';
+export { default as Dashboard } from './Dashboard';
+export { default as Models } from './Models';
+export { default as Gallery } from './Gallery';
+export { default as ProcessingImage } from './ProcessingImage';
+export { default as UploadImageResult } from './UploadImageResult';
 
 // Forms
 export { default as LoginForm } from './forms/LoginForm';

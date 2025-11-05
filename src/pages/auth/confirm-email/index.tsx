@@ -85,6 +85,7 @@ const ConfirmEmailPage = () => {
     <div className="min-h-screen flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md space-y-6">
         {/* Status Message */}
+
         {status !== "idle" && message && (
           <div
             role="status"
@@ -100,6 +101,7 @@ const ConfirmEmailPage = () => {
             {message}
           </div>
         )}
+
 
         {/* Main Card */}
         <div className="bg-[#1D2027] md:w-[540px] md:h-[404px] border border-[#393B41] rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl">
@@ -151,6 +153,7 @@ const ConfirmEmailPage = () => {
         <div className="flex justify-center">
           <BackToPage title="Back to login" route="/auth/login" />
         </div>
+
       </div>
     </div>
   );

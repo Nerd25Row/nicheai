@@ -19,6 +19,7 @@ export const signUp = async ({
   email,
   password,
 }: SignupProps): Promise<AuthData> => {
+
   const { data: emailExists, error: emailExistsError } = await supabase.rpc(
     "check_email_exists",
     {
@@ -27,6 +28,7 @@ export const signUp = async ({
   );
   if (emailExistsError) throw emailExistsError;
   if (emailExists) throw new Error("Email Already Registered");
+
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -80,12 +82,14 @@ export const getUser = async (): Promise<User | null> => {
 export const signInWithOAuth = async (
   provider: "google" | "github"
 ): Promise<any> => {
+
   const { data, error } = await supabase.auth.signInWithOAuth({ 
     provider,
     options: {
       redirectTo: `${window.location.origin}/`
     }
   });
+
   if (error) throw error;
   return data;
 };
@@ -94,24 +98,30 @@ export const resendSignupEmail = async (email: string): Promise<AuthData> => {
   const { data, error } = await supabase.auth.resend({
     type: "signup",
     email,
+
     options: {
       emailRedirectTo: `${window.location.origin}/auth/confirm-email`
     }
+
   });
   if (error) throw error;
   return data;
 };
 
 export const requestPasswordReset = async (email: string): Promise<any> => {
+
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: "https://nicheai-six.vercel.app/auth/reset-password",
   });
+
   if (error) throw error;
   return data;
 };
 
 export async function resetPassword(
+
   password: string
+
 ): Promise<any> {
   if (!password) throw new Error("Password is required.");
 
@@ -124,8 +134,8 @@ export async function resetPassword(
   return data;
 }
 
-// Email confirmation is handled automatically by Supabase when the user clicks the link
-// We just need to check the current session status
+
+
 export async function checkEmailConfirmationStatus() {
   const { data: { session }, error } = await supabase.auth.getSession();
   
@@ -139,3 +149,44 @@ export async function checkEmailConfirmationStatus() {
     user: session?.user || null
   };
 }
+
+export async function updatePassword({
+  current_password,
+  new_password,
+}: {
+  current_password: string;
+  new_password: string;
+}): Promise<void> {
+  // Get current user to verify they're logged in
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser();
+
+  if (userError || !user || !user.email) {
+    throw new Error("User not found. Please log in.");
+  }
+
+  // Verify current password by attempting to sign in with it
+  const { error: verifyError } = await supabase.auth.signInWithPassword({
+    email: user.email,
+    password: current_password,
+  });
+
+  if (verifyError) {
+    if (verifyError.message?.includes("Invalid login credentials")) {
+      throw new Error("Current password is incorrect");
+    }
+    throw verifyError;
+  }
+
+  // If verification succeeds, update to new password
+  const { error: updateError } = await supabase.auth.updateUser({
+    password: new_password,
+  });
+
+  if (updateError) {
+    throw updateError;
+  }
+}
+

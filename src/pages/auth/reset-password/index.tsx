@@ -24,8 +24,10 @@ type FormValues = z.infer<typeof formSchema>;
 type Status = "idle" | "success" | "error";
 
 const ResetPasswordPage = () => {
+
   // const [params] = useSearchParams();
   // const token = params.get("token");
+
 
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");

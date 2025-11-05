@@ -16,10 +16,12 @@ import ResetPasswordPage from "../pages/auth/reset-password";
 
 // Error page
 import ErrorPage from "../pages/errors";
-import { AuthLayout } from "../components";
+import { AuthLayout, TeamMemberSignupForm } from "../components";
 import ProtectedRoute from "./ProtectedRoute";
 import ResendEmailPage from "../pages/auth/resend-email";
 import ConfirmEmailPage from "../pages/auth/confirm-email";
+import Settings from "../components/Settings";
+import UpgradePlan from "../components/UpgradePlan";
 const router = createBrowserRouter([
   // Auth routes
   {
@@ -31,7 +33,8 @@ const router = createBrowserRouter([
       { path: "forgot-password", element: <ForgotPasswordPage /> },
       { path: "reset-password", element: <ResetPasswordPage /> },
       { path: "resend-email", element: <ResendEmailPage /> },
-      { path: "confirm-email", element: <ConfirmEmailPage /> }
+      { path: "confirm-email", element: <ConfirmEmailPage /> },
+      { path: "invite", element: <TeamMemberSignupForm /> },
     ],
   },
 
@@ -52,7 +55,8 @@ const router = createBrowserRouter([
             path: "models/upload-image/results",
             element: <UploadImageResultPage />,
           },
-          { path: "dashboard/upgrade", element: <DashboardPage /> },
+          { path: "settings", element: <Settings /> },
+          { path: "dashboard/upgrade", element: <UpgradePlan /> },
         ],
       },
     ],

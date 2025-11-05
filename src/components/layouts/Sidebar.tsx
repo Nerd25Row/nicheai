@@ -7,12 +7,13 @@ import {
   Settings,
   Sun,
 } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LogoComponent from "./LogoComponent";
 import { Button } from "../ui/button";
-import { useSignOut } from "../../features/auth/useAuthMutations";
+import { useSignOutMutation } from "../../features/auth/useAuthMutations";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const isActive = (path: string) => {
     return (
@@ -20,10 +21,12 @@ const Sidebar = () => {
       (path === "/" && location.pathname === "/dashboard")
     );
   };
-  const logoutMutation = useSignOut();
+
+  const logoutMutation = useSignOutMutation();
   const handleLogout = () => {
     logoutMutation.mutate();
   };
+
 
   return (
     <div className="w-full lg:w-[256px] h-auto lg:h-screen flex flex-col justify-between rotate-0 opacity-100 pt-4 lg:pt-8 pr-3 lg:pr-5 pb-4 lg:pb-8 pl-3 lg:pl-5 bg-[#2E3137] lg:bg-[#2E3137]">
@@ -104,16 +107,18 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col items-center w-full lg:w-[216px] h-auto lg:h-[180px] rotate-0 opacity-100 gap-4 lg:gap-6">
         <div className="w-full lg:w-[216px] h-auto lg:h-[108px] flex flex-col items-center rotate-0 opacity-100 gap-3">
-          <div className="w-full lg:w-[216px] h-[48px] rotate-0 opacity-100 rounded-xl flex items-center justify-center gap-3 px-4 py-3">
+          {/* settings */}
+          <div className="cursor-pointer w-full lg:w-[216px] h-[48px] rotate-0 opacity-100 rounded-xl flex items-center justify-center gap-3 px-4 py-3" onClick={()=>navigate('/settings')}>
             <div className="w-full lg:w-[216px] h-[48px] rotate-0 opacity-100 gap-4 rounded p-3 flex items-center">
               <div className="w-5 h-5 rotate-0 opacity-100 rounded relative">
                 <Settings className="w-[16.96px] h-[17.92px] rotate-0 opacity-100 absolute top-[1.04px] left-[1.52px] text-[#B6BCCA]" />
               </div>
-              <span className="w-full lg:w-[156px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-base leading-6 tracking-normal text-[#B6BCCA]">
+              <span className=" w-full lg:w-[156px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-base leading-6 tracking-normal text-[#B6BCCA]">
                 Settings
               </span>
             </div>
           </div>
+          {/* logout */}
           <div
             className="w-full lg:w-[216px] h-[48px] cursor-pointer rotate-0 opacity-100 rounded-xl flex items-center justify-center gap-3 px-4 py-3"
             onClick={handleLogout}

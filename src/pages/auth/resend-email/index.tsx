@@ -29,11 +29,9 @@ type Status = "idle" | "success" | "error";
 const ResendEmailPage = () => {
   const [params] = useSearchParams();
   const initialEmail = useMemo(() => params.get("email")?.trim() ?? "", [params]);
-
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -91,6 +89,7 @@ const ResendEmailPage = () => {
               <img src="/assets/images/email.svg" />
             </div>
           </div>
+
           
           <div className="flex flex-col items-center w-[444px] gap-8">
             <div className="flex flex-col items-center w-[444px] gap-4">
