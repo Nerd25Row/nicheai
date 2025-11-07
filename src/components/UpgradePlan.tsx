@@ -86,7 +86,6 @@ const UpgradePlan = () => {
                   Next Billing
                 </span>
               </div>
-
               <div className="flex items-center justify-center w-[40px] h-[40px] rounded-xl  bg-[#00FFFF33] flex-shrink-0">
                 <img
                   src="/assets/images/billing_2.svg"
@@ -143,12 +142,10 @@ const UpgradePlan = () => {
                   </Button>
                 </div>
                 {/*  */}
-
                 <div className="w-full md:w-[293px] h-auto md:h-[48px] font-inter font-normal text-sm md:text-base leading-5 md:leading-6 text-[#B6BCCA]">
                   Production-Scale AI Designed for Massive Throughput
                 </div>
               </div>
-
               <div className="flex flex-col items-center w-full md:w-[293.328125px] h-auto md:h-[80px] gap-2">
                 <span className="w-full md:w-[293.328125px] h-auto md:h-[24px] font-inter font-medium text-sm md:text-base leading-5 md:leading-6 align-middle text-[#CACFDA]">
                   Amount
@@ -190,12 +187,10 @@ const UpgradePlan = () => {
                   </span>
                 </div>
                 {/*  */}
-
                 <div className="w-full md:w-[293px] h-auto md:h-[48px] font-inter font-normal text-sm md:text-base leading-5 md:leading-6 text-[#B6BCCA]">
                   Production-Scale AI Designed for Massive Throughput
                 </div>
               </div>
-
               <div className="flex flex-col items-center w-full md:w-[293.328125px] h-auto md:h-[80px] gap-2">
                 <span className="w-full md:w-[293.328125px] h-auto md:h-[24px] font-inter font-medium text-sm md:text-base leading-5 md:leading-6 align-middle text-[#CACFDA]">
                   Amount
@@ -237,12 +232,10 @@ const UpgradePlan = () => {
                   </span>
                 </div>
                 {/*  */}
-
                 <div className="w-full md:w-[293px] h-auto md:h-[48px] font-inter font-normal text-sm md:text-base leading-5 md:leading-6 text-[#B6BCCA]">
                   Production-Scale AI Designed for Massive Throughput
                 </div>
               </div>
-
               <div className="flex flex-col items-center w-full md:w-[293.328125px] h-auto md:h-[80px] gap-2">
                 <span className="w-full md:w-[293.328125px] h-auto md:h-[24px] font-inter font-medium text-sm md:text-base leading-5 md:leading-6 align-middle text-[#CACFDA]">
                   Amount
@@ -275,7 +268,6 @@ const UpgradePlan = () => {
             </div>
           </div>
         </div>
-
         <div className="w-full md:w-[1120px] h-auto md:h-[124px] rounded-[20px] md:rounded-[24px] opacity-100 bg-black shadow-[0px_32px_40px_-12px_rgba(0,0,0,0.25)]">
           <div className="flex items-center justify-center w-full md:w-[1120px] h-auto md:h-[124px] rounded-[20px] md:rounded-[24px]  opacity-100 bg-gradient-to-r from-[#00FFFF] to-[#07EC17] p-4 md:p-0">
             <div className="flex flex-col md:flex-row items-center w-full md:w-[1056px] h-auto md:h-[60px] justify-between gap-4 md:gap-0">

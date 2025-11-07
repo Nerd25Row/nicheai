@@ -9,7 +9,6 @@ const DashboardLayout = () => {
       <div className="hidden lg:block flex-shrink-0">
         <Sidebar />
       </div>
-
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Dashboard Header */}
@@ -23,5 +22,4 @@ const DashboardLayout = () => {
     </div>
   );
 };
-
 export default DashboardLayout;

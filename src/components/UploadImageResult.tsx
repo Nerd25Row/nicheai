@@ -389,7 +389,6 @@ const UploadImageResult: React.FC = () => {
               </Button>
             </div>
           </div>
-
           {/* Save error alert */}
           {saveError && (
             <Alert variant="destructive" className="max-w-md">

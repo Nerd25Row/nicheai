@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLoggedInUserProfile } from "../features/user/useUserQuery";
 import { useUpdateUserInformationMutation } from "../features/user/useUpdateUserInformationMutation";
-
 const formSchema = z.object({
   first_name: z
     .string()

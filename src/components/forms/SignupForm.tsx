@@ -25,7 +25,6 @@ import { Alert } from "../ui/alert";
 import { useNavigate } from "react-router-dom";
 import BackToPage from "../layouts/BackToHomePage";
 import { useState } from "react";
-
 import { useSignUpMutation } from "../../features/auth/useAuthMutations";
 
 const formSchema = z.object({
@@ -71,7 +70,6 @@ const SignupForm = () => {
   } = form;
   
   const signupMutation = useSignUpMutation();
-
   const submitSignup = async (values: FormValues) => {
     signupMutation.mutate(values, {
       onSuccess: (_data, variables) => {

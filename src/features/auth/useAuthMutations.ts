@@ -1,8 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "../../store/auth/authStore";
 import { signIn, signInWithOAuth, signOut, signUp } from "../../services/auth/authService";
-
-
 export const useSignInMutation = () => {
   const qc = useQueryClient();
   const { setUser, setSession, setStatus } = useAuthStore();

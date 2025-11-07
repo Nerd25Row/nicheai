@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+
 import InviteTeamMembers from "./InviteTeamMembers";
 import { useState } from "react";
 import { useCreateInviteLinkMutation } from "../features/companyTeamMember/useCreateInviteLinkMutation";
@@ -38,7 +39,6 @@ const TeamManagement = () => {
             Team Management
           </span>
         </div>
-
         <Button
           className="flex items-center w-full md:max-w-[224px] md:min-h-[40px] gap-2 rounded-[8px] border border-[#4D5057] bg-[#2E3137] px-4 py-2 shadow-[0px_1px_2px_0px_#1018280D]"
           onClick={handleInviteTeamMembers}

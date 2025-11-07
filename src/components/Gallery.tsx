@@ -98,7 +98,6 @@ const Gallery: React.FC = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-
           <Button
             onClick={handleDownloadAll}
             disabled={!galleryItems || galleryItems.length === 0}
@@ -110,7 +109,6 @@ const Gallery: React.FC = () => {
             </span>
           </Button>
         </div>
-
         {/* Loading state */}
         {isLoading && (
           <div className="flex items-center justify-center py-12">
