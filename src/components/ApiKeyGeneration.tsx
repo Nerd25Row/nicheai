@@ -1,7 +1,7 @@
 import { AlertDialog, AlertDialogContent } from "./ui/alert-dialog";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { Copy } from "lucide-react";
+import { Copy, X } from "lucide-react";
 
 const ApiKeyGeneration = ({
   open,
@@ -24,6 +24,18 @@ const ApiKeyGeneration = ({
           pt-8 pr-6 pb-6 pl-6 sm:pt-12 sm:pr-12 sm:pb-8 sm:pl-12
         "
       >
+        {/* Close Button */}
+        <Button
+          onClick={() => onOpenChange(false)}
+          className="
+            absolute top-4 right-4
+            text-[#B6BCCA]
+            hover:text-white
+            transition-colors
+          "
+        >
+          <X className="w-5 h-5" />
+        </Button>
         {/* Wrapper */}
         <div
           className="
@@ -130,7 +142,8 @@ const ApiKeyGeneration = ({
               />
             </div>
             <span className="w-auto sm:w-[421px] h-auto sm:h-[40px] opacity-100 font-inter font-normal text-sm leading-5 tracking-[1%] text-[#B6BCCA]">
-              You have 100 free images to start testing. No credit card required.
+              You have 100 free images to start testing. No credit card
+              required.
             </span>
           </div>
 
