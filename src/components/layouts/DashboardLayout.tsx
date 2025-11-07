@@ -15,7 +15,7 @@ const DashboardLayout = () => {
         <DashboardHeader />
 
         {/* Dashboard Content */}
-        <div className="flex-1  min-h-0 overflow-y-auto scrollbar-hidden  mb-auto">
+        <div className="flex-1  min-h-0  bg-[#1E2128] overflow-y-auto scrollbar-hidden  mb-auto">
           <Outlet />
         </div>
       </div>

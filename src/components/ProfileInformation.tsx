@@ -15,11 +15,7 @@ const formSchema = z.object({
     .string()
     .min(2, { message: "Last Name must be at least 2 characters" }),
   email: z.string().email("Please enter a valid email"),
-  phone_number: z
-    .string()
-    .max(15, "Too long")
-    .optional()
-    .or(z.literal("")),
+  phone_number: z.string().max(15, "Too long").optional().or(z.literal("")),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -76,7 +72,7 @@ const ProfileInformation = () => {
 
   if (isLoadingProfile) {
     return (
-      <div className="flex flex-col items-center justify-center w-full md:max-w-[864px] min-h-[330px] rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4">
+      <div className="flex flex-col items-center justify-center w-full lg:max-w-[864px] min-h-[330px] rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4">
         <Loader2 className="w-6 h-6 animate-spin text-[#B6BCCA]" />
       </div>
     );
@@ -84,19 +80,19 @@ const ProfileInformation = () => {
   return (
     <form
       onSubmit={handleSubmit(saveChanges)}
-      className="flex flex-col items-center md:items-start justify-between w-full md:max-w-[864px] min-h-[330px] rotate-0 opacity-100 rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4"
+      className="flex flex-col items-center lg:items-start justify-between w-full lg:max-w-[864px] min-h-[330px] rotate-0 opacity-100 rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4"
     >
       {/* Header */}
-      <div className="flex items-center justify-center md:justify-start w-full h-[28px] rotate-0 opacity-100 mb-4">
-        <span className="w-[167px] h-[28px] rotate-0 opacity-100 font-inter font-semibold text-lg leading-[100%] tracking-[0%] text-white">
+      <div className="flex items-center justify-center lg:justify-start w-full lg:max-w-[864px] h-[28px] rotate-0 opacity-100 mb-4">
+        <span className="w-full lg:max-w-[167px] h-[28px] rotate-0 opacity-100 font-inter font-semibold text-lg leading-[100%] tracking-[0%] text-white">
           Profile Information
         </span>
       </div>
 
       {/* Form */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 min-h-[164px] rotate-0 opacity-100 gap-4">
+      <div className="w-full lg:max-w-[814px] grid grid-cols-1 lg:grid-cols-2 min-h-[164px] rotate-0 opacity-100 gap-4">
         {/* First Name */}
-        <div className="flex flex-col justify-between w-full min-h-[70px] rotate-0 opacity-100">
+        <div className="flex flex-col justify-between w-full lg:max-w-[395px] min-h-[70px] rotate-0 opacity-100">
           <div className="w-full h-[20px] rotate-0 opacity-100 mb-2">
             <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
               First Name
@@ -119,7 +115,7 @@ const ProfileInformation = () => {
         </div>
 
         {/* Last Name */}
-        <div className="flex flex-col justify-between w-full min-h-[70px] rotate-0 opacity-100">
+        <div className="flex flex-col justify-between w-full lg:max-w-[395px] min-h-[70px] rotate-0 opacity-100">
           <div className="w-full h-[20px] rotate-0 opacity-100 mb-2">
             <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
               Last Name
@@ -142,7 +138,7 @@ const ProfileInformation = () => {
         </div>
 
         {/* Email */}
-        <div className="flex flex-col justify-between w-full min-h-[70px] rotate-0 opacity-100">
+        <div className="flex flex-col justify-between w-full lg:max-w-[395px] min-h-[70px] rotate-0 opacity-100">
           <div className="w-full h-[20px] rotate-0 opacity-100 mb-2">
             <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
               Business Email
@@ -166,7 +162,7 @@ const ProfileInformation = () => {
         </div>
 
         {/* Phone Number */}
-        <div className="flex flex-col justify-between w-full min-h-[70px] rotate-0 opacity-100">
+        <div className="flex flex-col justify-between w-full lg:max-w-[395px] min-h-[70px] rotate-0 opacity-100">
           <div className="w-full h-[20px] rotate-0 opacity-100 mb-2">
             <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
               Phone Number (Optional)

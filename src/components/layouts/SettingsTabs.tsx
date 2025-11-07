@@ -1,66 +1,79 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Button } from "../ui/button";
 import { cn } from "../../lib/utils";
+
 interface SettingsTabProps {
   currentActiveTabe: string;
   setCurrentActiveTab: Dispatch<SetStateAction<string>>;
 }
+
 const SettingsTabs = ({
   currentActiveTabe,
   setCurrentActiveTab,
 }: SettingsTabProps) => {
+  const baseTab =
+    "shrink-0 rounded-none bg-[#1E2128] px-3 sm:px-4 py-2 h-[43px] transition-colors";
+  const baseText =
+    "font-inter text-sm sm:text-base leading-[100%] tracking-[0%] text-center whitespace-nowrap";
+
   return (
-    <div className="flex w-full h-[43px] rotate-0 opacity-100 gap-8 border-b border-b-[#4D5057]">
-      <Button
-        className={cn(
-          `w-[119.078125px] h-[43px] rotate-0 opacity-100 bg-[#1E2128]`,
-          `${
+    <div className="w-full border-b border-b-[#4D5057]">
+      <div
+        className="
+          flex items-end gap-3 sm:gap-8
+          overflow-x-auto no-scrollbar
+          [scrollbar-width:none] [-ms-overflow-style:none]
+          snap-x snap-mandatory
+        "
+      >
+        {/* User Settings */}
+        <Button
+          className={cn(
+            baseTab,
+            "snap-start",
             currentActiveTabe === "user-settings"
               ? "border-b-2 border-b-[#00FFFF]"
               : "border-b border-b-[#4D5057]"
-          }`
-        )}
-        onClick={() => setCurrentActiveTab("user-settings")}
-      >
-        <span
-          className={cn(
-            `w-[109px] h-[24px] rotate-0 opacity-100 top-[2px] left-[8px] font-inter font-medium text-base leading-[100%] tracking-[0%] text-center`,
-            `${
-              currentActiveTabe === "user-settings"
-                ? " text-white"
-                : "text-[#B6BCCA]"
-            }`
           )}
+          onClick={() => setCurrentActiveTab("user-settings")}
         >
-          User Settings
-        </span>
-      </Button>
-      <Button
-        className={cn(
-          `w-[154.59375px] h-[43px]  bg-[#1E2128] rotate-0 opacity-100`,
-          `${
+          <span
+            className={cn(
+              baseText,
+              currentActiveTabe === "user-settings"
+                ? "text-white"
+                : "text-[#B6BCCA]"
+            )}
+          >
+            User Settings
+          </span>
+        </Button>
+
+        {/* Company Settings */}
+        <Button
+          className={cn(
+            baseTab,
+            "snap-start",
             currentActiveTabe === "company-settings"
               ? "border-b-2 border-b-[#00FFFF]"
               : "border-b border-b-[#4D5057]"
-          }`
-        )}
-        onClick={() => setCurrentActiveTab("company-settings")}
-      >
-        {/* NEXT TO DO */}
-        <span
-          className={cn(
-            `w-[144px] h-[24px] rotate-0 opacity-100 top-[3px] left-[8px] font-inter font-normal text-base leading-[100%] tracking-[0%] text-center`,
-            `${
+          )}
+          onClick={() => setCurrentActiveTab("company-settings")}
+        >
+          <span
+            className={cn(
+              baseText,
               currentActiveTabe === "company-settings"
                 ? "text-white"
                 : "text-[#B6BCCA]"
-            }`
-          )}
-        >
-          Company Settings
-        </span>
-      </Button>
+            )}
+          >
+            Company Settings
+          </span>
+        </Button>
+      </div>
     </div>
   );
 };
+
 export default SettingsTabs;

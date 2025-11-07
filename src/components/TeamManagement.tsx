@@ -32,26 +32,26 @@ const TeamManagement = () => {
     } catch (error) {}
   };
   return (
-    <div className="w-full md:max-w-[864px] md:min-h-[288px] rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4">
-      <div className="w-full md:max-w-[814px] md:min-h-[40px] flex flex-col items-center md:flex-row justify-between mb-4">
-        <div className="w-full md:max-w-[165.05px] md:min-h-[28px]">
+    <div className="w-full lg:max-w-[864px] min-h-[288px] rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4">
+      <div className="w-full lg:max-w-[814px] min-h-[40px] flex flex-col items-center lg:flex-row justify-between mb-4">
+        <div className="w-full lg:max-w-[165.05px] min-h-[28px]">
           <span className="font-inter font-medium text-lg text-white">
             Team Management
           </span>
         </div>
         <Button
-          className="flex items-center w-full md:max-w-[224px] md:min-h-[40px] gap-2 rounded-[8px] border border-[#4D5057] bg-[#2E3137] px-4 py-2 shadow-[0px_1px_2px_0px_#1018280D]"
+          className="flex items-center w-full lg:max-w-[224px] min-h-[40px] gap-2 rounded-[8px] border border-[#4D5057] bg-[#2E3137] px-4 py-2 shadow-[0px_1px_2px_0px_#1018280D]"
           onClick={handleInviteTeamMembers}
         >
-          <Plus className="w-full md:max-w-[16px] h-[16px] text-white" />
-          <span className="w-full hidden md:flex md:max-w-[168px] md:min-h-[24px] font-inter font-bold text-base text-white">
+          <Plus className="w-full lg:max-w-[16px] h-[16px] text-white" />
+          <span className="w-full lg:max-w-[168px] min-h-[24px] font-inter font-bold text-base text-white">
             Invite Team Members
           </span>
         </Button>
       </div>
 
       {/* Table */}
-      <div className="w-full md:max-w-[814px] md:min-h-[174px]">
+      <div className="w-full lg:max-w-[814px] min-h-[174px]">
         <Table className="w-full">
           <TableHeader>
             <TableRow className="border-b border-[#4D5057]">
