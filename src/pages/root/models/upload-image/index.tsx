@@ -102,13 +102,13 @@ const ImageUploadPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#1E2128] flex items-center justify-center px-4 py-6 md:px-6">
-      <div className="flex flex-col items-center justify-center w-full md:w-[616px] h-auto min-h-[472px] rotate-0 opacity-100 gap-8 md:gap-12 bg-[#1E2128] rounded-xl p-6 md:p-8">
+    <div className="min-h-screen w-full  flex items-center justify-center px-4 py-6 md:px-6">
+      <div className="flex flex-col items-center justify-center w-full md:w-[616px] h-auto min-h-[472px] rotate-0 opacity-100 gap-8 md:gap-12  rounded-xl p-6 md:p-8">
         <div className="flex flex-col w-full max-w-[518px] h-auto rotate-0 opacity-100 gap-4">
-          <span className="w-full h-auto rotate-0 opacity-100 font-inter font-bold text-2xl md:text-[32px] leading-[40px] tracking-[-2%] text-center text-white">
+          <span className="w-full h-auto rotate-0 opacity-100 font-inter font-bold text-2xl md:text-[32px] leading-[40px] tracking-[-2%] text-center dark:text-white">
             {modelName}
           </span>
-          <span className="w-full h-auto rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-[0%] text-center text-[#CACFDA]">
+          <span className="w-full h-auto rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-[0%] text-center text-gray-600 dark:text-[#CACFDA]">
             {modelDescription}
           </span>
         </div>
@@ -126,7 +126,7 @@ const ImageUploadPage = () => {
             className={`flex justify-center w-full md:w-[616px] h-auto min-h-[344px] rotate-0 opacity-100 gap-3 rounded-xl border border-dashed p-6 transition-colors ${
               isDragActive
                 ? "border-[#00FFFF] bg-[#2E3137]/80"
-                : "border-[#7E8390] bg-[#2E3137]"
+                : "border-[#7E8390] bg-gray-200 dark:bg-[#2E3137]"
             }`}
             {...getRootProps()}
           >
@@ -143,7 +143,7 @@ const ImageUploadPage = () => {
               <div className="flex flex-col items-center w-full md:w-[263px] gap-1 sm:gap-1.5 text-center">
                 <span
                   className={`w-full md:w-[263px] rotate-0 opacity-100 font-inter font-normal text-sm leading-5 tracking-[1%] transition-colors ${
-                    isDragActive ? "text-[#00FFFF]" : "text-[#CACFDA]"
+                    isDragActive ? "text-[#00FFFF]" : "dark:text-[#CACFDA]"
                   }`}
                 >
                   {isDragActive
@@ -151,14 +151,14 @@ const ImageUploadPage = () => {
                     : "Drag & drop your file to start uploading"}
                 </span>
 
-                <span className="w-full md:w-[122px] rotate-0 opacity-100 font-inter font-medium text-xs leading-[18px] tracking-[1%] text-[#B6BCCA]">
+                <span className="w-full md:w-[122px] rotate-0 opacity-100 font-inter font-medium text-xs leading-[18px] tracking-[1%] dark:text-[#B6BCCA]">
                   Max. File Size: 30MB
                 </span>
               </div>
 
               <div className="flex items-center justify-between w-[201px] h-[18px] rotate-0 opacity-100 gap-3">
                 <div className="w-[80px] h-[0.970588207244873px] rotate-0 opacity-100 bg-[#4D5057]" />
-                <span className="w-[17px] h-[18px] rotate-0 opacity-100 font-inter font-normal text-xs leading-5 tracking-[0%] text-center text-[#B6BCCA]">
+                <span className="w-[17px] h-[18px] rotate-0 opacity-100 font-inter font-normal text-xs leading-5 tracking-[0%] text-center dark:text-[#B6BCCA]">
                   OR
                 </span>
                 <div className="w-[80px] h-[0.970588207244873px] rotate-0 opacity-100 bg-[#4D5057]" />

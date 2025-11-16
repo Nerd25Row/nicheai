@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useGetAllModelsQuery } from "../features/model/useGetAllModelsQuery";
 import type { Model } from "../services/model/modelService";
 import { Alert, AlertDescription } from "./ui/alert";
-import { cn } from "../lib/utils";
 
 type FeatureProps = { children: React.ReactNode };
 
@@ -75,9 +74,7 @@ const CATEGORY_DEFAULTS: Record<string, ModelMedia> = {
   },
 };
 
-// Per-slug overrides if you want a specific model to have bespoke media
 const SLUG_OVERRIDES: Record<string, Partial<ModelMedia>> = {
-  // "unet-seg-v2": { leftImgSrc: "/assets/images/unet_left.png", rightImgSrc: "/assets/images/unet_right.png" },
 };
 
 function arrayOrFallback(arr: unknown, fallback: string[]) {
@@ -118,11 +115,10 @@ function getModelMedia(model: Model): ModelMedia {
   return merged;
 }
 
-/** ---------- UI pieces ---------- */
 const Feature: React.FC<FeatureProps> = ({ children }) => (
   <li className="flex items-start gap-2">
     <Check className="mt-1 h-4 w-4 shrink-0 text-[#00C0C1]" />
-    <span className="font-inter text-base text-[#CACFDA] leading-tight">
+    <span className="font-inter text-base text-gray-600 dark:text-[#CACFDA] leading-tight">
       {children}
     </span>
   </li>
@@ -150,15 +146,14 @@ const MediaPair: React.FC<MediaPairProps> = ({
     {/* Left */}
     <div
       className={`flex items justify-center rounded-lg bg-cover bg-no-repeat bg-center ${
-        leftBg?? ""
+        leftBg ?? ""
       }`}
       style={{ backgroundColor: "#FBFBFB" }}
-      
     >
       <img
         src={leftImgSrc}
         alt={leftAlt}
-        className="h-52 md:h-56 w-full object-cover"
+        className="h-52 md:h-56 w-full object-cover rounded-lg"
       />
     </div>
 
@@ -178,7 +173,7 @@ const MediaPair: React.FC<MediaPairProps> = ({
       <img
         src={rightImgSrc}
         alt={rightAlt}
-        className="h-52 md:h-56 w-full object-cover"
+        className="h-52 md:h-56 w-full object-cover rounded-lg"
       />
     </div>
   </div>
@@ -203,7 +198,7 @@ const ModelCard: React.FC<ModelCardProps> = ({ model, navigate }) => {
   };
 
   return (
-    <section className="w-full max-w-[1120px]">
+    <section className="w-full lg:max-w-[1120px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Media side */}
         <div className="flex flex-col gap-4">
@@ -232,10 +227,10 @@ const ModelCard: React.FC<ModelCardProps> = ({ model, navigate }) => {
         {/* Text side */}
         <div className="flex flex-col justify-between gap-6">
           <div className="space-y-3">
-            <h3 className="font-inter text-2xl font-bold text-white">
+            <h3 className="font-inter text-2xl font-bold dark:text-white">
               {model.name}
             </h3>
-            <p className="font-inter text-base text-[#CACFDA] leading-snug">
+            <p className="font-inter text-base text-gray-600 dark:text-[#CACFDA] leading-snug">
               {model.description || "No description available."}
             </p>
           </div>
@@ -268,7 +263,7 @@ const Models: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center w-full min-h-screen bg-[#1E2128] p-4 md:p-6">
+      <div className="flex flex-col items-center justify-center w-full min-h-screen  p-4 md:p-6">
         <Loader2 className="h-8 w-8 animate-spin text-[#00FFFF]" />
         <p className="mt-4 font-inter text-base text-[#CACFDA]">
           Loading models...
@@ -279,7 +274,7 @@ const Models: React.FC = () => {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center w-full min-h-screen bg-[#1E2128] p-4 md:p-6">
+      <div className="flex flex-col items-center justify-center w-full min-h-screen  p-4 md:p-6">
         <Alert variant="destructive" className="max-w-md">
           <AlertDescription>
             Failed to load models. Please try again later.
@@ -291,7 +286,7 @@ const Models: React.FC = () => {
 
   if (!models || models.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center w-full min-h-screen bg-[#1E2128] p-4 md:p-6">
+      <div className="flex flex-col items-center justify-center w-full min-h-screen  p-4 lg:p-6">
         <Alert className="max-w-md">
           <AlertDescription>
             No models available at the moment.
@@ -302,11 +297,9 @@ const Models: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-center w-full min-h-screen bg-[#1E2128] p-4 md:p-6 gap-10 md:gap-20">
+    <div className="flex flex-col items-center  justify-center w-full min-h-screen  p-4 lg:p-6 gap-10 lg:gap-20">
       {Object.entries(models).map(([index, model]) => (
-        <div key={index} className="w-full flex flex-col gap-10 md:gap-20">
-          <ModelCard key={model.id} model={model} navigate={navigate} />
-        </div>
+        <ModelCard key={model.id} model={model} navigate={navigate} />
       ))}
     </div>
   );

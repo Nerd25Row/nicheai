@@ -85,7 +85,7 @@ const CompanyInformation = () => {
   };
   if (isCompanyLoading) {
     return (
-      <div className="flex flex-col items-center justify-center w-full md:max-w-[864px] min-h-[330px] rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4">
+      <div className="flex flex-col items-center justify-center w-full md:max-w-[864px] min-h-[330px] rounded-[20px] border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] p-4">
         <Loader2 className="w-6 h-6 animate-spin text-[#B6BCCA]" />
       </div>
     );
@@ -94,12 +94,12 @@ const CompanyInformation = () => {
     <Form {...form}>
       <form
         onSubmit={handleSubmit(saveChanges)}
-        className="flex flex-col justify-between w-full lg:max-w-[864px] [404px] rotate-0 opacity-100 rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4 sm:p-5 md:p-6
+        className="flex flex-col justify-between w-full lg:max-w-[864px] [404px] rotate-0 opacity-100 rounded-[20px] border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] p-4 sm:p-5 md:p-6
                     gap-4 sm:gap-5 md:gap-6"
       >
         {/* Title */}
         <div className="flex items-center w-full lg:max-w-[814px] h-[28px] rotate-0 opacity-100">
-          <span className="w-full w-[192px] h-[28px] truncate rotate-0 opacity-100 font-inter font-medium text-lg leading-[100%] tracking-[0%] text-white">
+          <span className="w-full w-[192px] h-[28px] truncate rotate-0 opacity-100 font-inter font-medium text-lg leading-[100%] tracking-[0%] dark:text-white">
             Company Information
           </span>
         </div>
@@ -116,14 +116,14 @@ const CompanyInformation = () => {
               <FormItem className="flex flex-col w-full lg:max-w-[395px] min-h-[78px] rotate-0 opacity-100 gap-2">
                 <FormLabel className="flex items-center w-full lg:max-w-[395px] h-[20px] rotate-0 opacity-100">
                   {" "}
-                  <span className="w-full w-[112px] h-[20px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+                  <span className="w-full w-[112px] h-[20px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
                     Company Name
                   </span>
                 </FormLabel>
                 <FormControl>
                   <Input
                     {...field}
-                    className="w-full lg:max-w-[395px] h-[50px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-[#4D5057] border-0 text-white placeholder:text-[#ADAEBC] placeholder:font-inter placeholder:font-normal placeholder:text-base placeholder:leading-6 placeholder:tracking-[0%] placeholder:align-middle"
+                    className="w-full lg:max-w-[395px] h-[50px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057] border-0 dark:text-white dark:placeholder:text-[#ADAEBC] placeholder:font-inter placeholder:font-normal placeholder:text-base placeholder:leading-6 placeholder:tracking-[0%] placeholder:align-middle"
                     placeholder="Enter company name"
                   />
                 </FormControl>
@@ -142,14 +142,14 @@ const CompanyInformation = () => {
               <FormItem className="flex flex-col w-full lg:max-w-[395px] min-h-[78px] rotate-0 opacity-100 gap-2">
                 <FormLabel className="flex items-center max-w-[395px] h-[20px] rotate-0 opacity-100">
                   {" "}
-                  <span className="w-full lg:max-w-[112px] h-[20px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+                  <span className="w-full lg:max-w-[112px] h-[20px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
                     Company Domain
                   </span>
                 </FormLabel>
                 <FormControl>
                   <Input
                     {...field}
-                    className="w-full lg:max-w-[395px] h-[50px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-[#4D5057] border-0 text-white placeholder:text-[#ADAEBC] placeholder:font-inter placeholder:font-normal placeholder:text-base placeholder:leading-6 placeholder:tracking-[0%] placeholder:align-middle"
+                    className="w-full lg:max-w-[395px] h-[50px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057] border-0 dark:text-white dark:placeholder:text-[#ADAEBC] placeholder:font-inter placeholder:font-normal placeholder:text-base placeholder:leading-6 placeholder:tracking-[0%] placeholder:align-middle"
                     placeholder="company.com"
                   />
                 </FormControl>
@@ -167,7 +167,7 @@ const CompanyInformation = () => {
           render={({ field }) => (
             <FormItem className="w-full lg:max-w-[814px] min-h-[132px] rotate-0 opacity-100">
               <FormLabel className="flex items-center w-full lg:max-w-[814px] h-[20px] rotate-0 opacity-100">
-                <span className="w-[130px] h-[20px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+                <span className="w-[130px] h-[20px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
                   Address (Optional)
                 </span>
               </FormLabel>
@@ -175,7 +175,7 @@ const CompanyInformation = () => {
                 <div className="mt-2">
                   <Textarea
                     {...field}
-                    className="w-full lg:max-w-[814px] h-[98px] rotate-0 opacity-100 pt-3 pr-4 pb-3 pl-4 gap-3 rounded-xl bg-[#4D5057] border-0 text-white placeholder:text-[#ADAEBC] placeholder:font-inter placeholder:font-normal placeholder:text-base placeholder:leading-6 placeholder:tracking-[0%] resize-none"
+                    className="w-full lg:max-w-[814px] h-[98px] rotate-0 opacity-100 pt-3 pr-4 pb-3 pl-4 gap-3 rounded-xl bg-white  dark:bg-[#4D5057] border-0 dark:text-white dark:placeholder:text-[#ADAEBC] placeholder:font-inter placeholder:font-normal placeholder:text-base placeholder:leading-6 placeholder:tracking-[0%] resize-none"
                     placeholder="Enter company address"
                     id="address"
                   />
@@ -210,14 +210,14 @@ const CompanyInformation = () => {
         <Button
           type="submit"
           disabled={isSubmitting || updateCompanyMutation.isPending}
-          className=" w-[144px] [40px] rotate-0 opacity-100 pr-4 pl-4 gap-2 rounded-lg bg-[#00FFFF] shadow-[0px_-20px_20px_0px_#01FF013D_inset] mt-2 sm:mt-3 disabled:opacity-50 disabled:cursor-not-allowed"
+          className=" w-[144px] [40px] rotate-0 opacity-100 pr-4 pl-4 gap-2 rounded-lg bg-[#00FFFF] text-[#1D2027] hover:text-white shadow-[0px_-20px_20px_0px_#01FF013D_inset] mt-2 sm:mt-3 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting || updateCompanyMutation.isPending ? (
-            <span className="w-[112px] rotate-0 opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-[#1D2027]">
+            <span className="w-[112px] rotate-0 opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle ">
               Saving...
             </span>
           ) : (
-            <span className="w-[112px] rotate-0 opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-[#1D2027]">
+            <span className="w-[112px] rotate-0 opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle ">
               Save Changes
             </span>
           )}

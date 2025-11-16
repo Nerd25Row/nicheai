@@ -80,11 +80,11 @@ const ProfileInformation = () => {
   return (
     <form
       onSubmit={handleSubmit(saveChanges)}
-      className="flex flex-col items-center lg:items-start justify-between w-full lg:max-w-[864px] min-h-[330px] rotate-0 opacity-100 rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4"
+      className="flex flex-col items-center lg:items-start justify-between w-full lg:max-w-[864px] min-h-[330px] rotate-0 opacity-100 rounded-[20px] border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] p-4"
     >
       {/* Header */}
       <div className="flex items-center justify-center lg:justify-start w-full lg:max-w-[864px] h-[28px] rotate-0 opacity-100 mb-4">
-        <span className="w-full lg:max-w-[167px] h-[28px] rotate-0 opacity-100 font-inter font-semibold text-lg leading-[100%] tracking-[0%] text-white">
+        <span className="w-full lg:max-w-[167px] h-[28px] rotate-0 opacity-100 font-inter font-semibold text-lg leading-[100%] tracking-[0%] dark:text-white">
           Profile Information
         </span>
       </div>
@@ -94,15 +94,15 @@ const ProfileInformation = () => {
         {/* First Name */}
         <div className="flex flex-col justify-between w-full lg:max-w-[395px] min-h-[70px] rotate-0 opacity-100">
           <div className="w-full h-[20px] rotate-0 opacity-100 mb-2">
-            <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+            <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
               First Name
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <div className="flex items-center w-full h-[42px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-[#4D5057]">
+            <div className="flex items-center w-full h-[42px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057]">
               <Input
                 {...register("first_name")}
-                className="w-full h-[24px] rotate-0 opacity-100 font-inter font-normal border-0 text-base leading-6 tracking-[0%] text-white placeholder:text-white bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="w-full h-[24px] rotate-0 opacity-100 font-inter font-normal border-0 text-base leading-6 tracking-[0%] dark:text-white dark:placeholder:text-white bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                 placeholder="John"
               />
             </div>
@@ -117,15 +117,15 @@ const ProfileInformation = () => {
         {/* Last Name */}
         <div className="flex flex-col justify-between w-full lg:max-w-[395px] min-h-[70px] rotate-0 opacity-100">
           <div className="w-full h-[20px] rotate-0 opacity-100 mb-2">
-            <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+            <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
               Last Name
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <div className="flex items-center w-full h-[42px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-[#4D5057]">
+            <div className="flex items-center w-full h-[42px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057]">
               <Input
                 {...register("last_name")}
-                className="w-full h-[24px] rotate-0 opacity-100 font-inter font-normal border-0 text-base leading-6 tracking-[0%] text-white placeholder:text-white bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="w-full h-[24px] rotate-0 opacity-100 font-inter font-normal border-0 text-base leading-6 tracking-[0%] dark:text-white dark:placeholder:text-white bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                 placeholder="Doe"
               />
             </div>
@@ -140,16 +140,16 @@ const ProfileInformation = () => {
         {/* Email */}
         <div className="flex flex-col justify-between w-full lg:max-w-[395px] min-h-[70px] rotate-0 opacity-100">
           <div className="w-full h-[20px] rotate-0 opacity-100 mb-2">
-            <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+            <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
               Business Email
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <div className="flex items-center w-full h-[42px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-[#4D5057]">
+            <div className="flex items-center w-full h-[42px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057]">
               <Input
                 {...register("email")}
                 type="email"
-                className="w-full h-[24px] rotate-0 opacity-100 font-inter font-normal border-0 text-base leading-6 tracking-[0%] text-white placeholder:text-white bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="w-full h-[24px] rotate-0 opacity-100 font-inter font-normal border-0 text-base leading-6 tracking-[0%] dark:text-white dark:placeholder:text-white bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                 placeholder="john.doe@company.com"
               />
             </div>
@@ -164,15 +164,15 @@ const ProfileInformation = () => {
         {/* Phone Number */}
         <div className="flex flex-col justify-between w-full lg:max-w-[395px] min-h-[70px] rotate-0 opacity-100">
           <div className="w-full h-[20px] rotate-0 opacity-100 mb-2">
-            <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+            <span className="w-[77px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
               Phone Number (Optional)
             </span>
           </div>
           <div className="flex flex-col gap-1">
-            <div className="flex items-center w-full h-[42px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-[#4D5057]">
+            <div className="flex items-center w-full h-[42px] rotate-0 opacity-100 px-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057]">
               <Input
                 {...register("phone_number")}
-                className="w-full h-[24px] rotate-0 opacity-100 font-inter font-normal border-0 text-base leading-6 tracking-[0%] text-white placeholder:text-white bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="w-full h-[24px] rotate-0 opacity-100 font-inter font-normal border-0 text-base leading-6 tracking-[0%] dark:text-white dark:placeholder:text-white bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                 placeholder="+1 (555) 123-4567"
               />
             </div>
@@ -211,17 +211,17 @@ const ProfileInformation = () => {
         disabled={
           isSubmitting || updateUserProfileInformationMutation.isPending
         }
-        className="w-[144px] h-[40px] rotate-0 opacity-100 mt-4 pr-4 pl-4 gap-2 rounded-lg border border-[#4D5057] bg-[#2E3137] hover:bg-[#4D5057]/50 shadow-[0px_1px_2px_0px_#1018280D] disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-[144px] h-[40px] rotate-0 opacity-100 mt-4 pr-4 pl-4 gap-2 rounded-lg border border-[#4D5057] bg-gray-200 hover:bg-gray-300 dark:bg-[#2E3137] dark:hover:bg-[#4D5057]/50 shadow-[0px_1px_2px_0px_#1018280D] disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isSubmitting || updateUserProfileInformationMutation.isPending ? (
           <>
             <Loader2 className="w-4 h-4 animate-spin mr-2" />
-            <span className="font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-white">
+            <span className="font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-black dark:text-white">
               Saving...
             </span>
           </>
         ) : (
-          <span className="w-[112px] h-[24px] rotate-0 opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-white">
+          <span className="w-[112px] h-[24px] rotate-0 opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-black dark:text-white">
             Save Changes
           </span>
         )}

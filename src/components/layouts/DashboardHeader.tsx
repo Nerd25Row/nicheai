@@ -7,7 +7,7 @@ import ProfileAvatar from "./ProfileAvatar";
 const DashboardHeader = () => {
   const navigate = useNavigate();
   return (
-    <div className="sticky top-0 z-50 w-full h-[112px] rotate-0 opacity-100 gap-6 bg-[#1E2128] p-4 lg:p-10">
+    <div className="sticky top-0 z-50 w-full h-[112px]  bg-[#FFFFFF] dark:bg-[#1E2128] rotate-0 opacity-100 gap-6  p-4 lg:p-10">
       <div className="flex items-center justify-between w-full h-[64px] rotate-0 opacity-100 gap-4 lg:gap-16">
         {/* Mobile Navigation + INTRO */}
         <div className="flex items-center gap-4 min-w-0">
@@ -21,15 +21,15 @@ const DashboardHeader = () => {
           {/* Desktop: Full profile section */}
           <div className="hidden lg:flex items-center w-[268.52px] h-[48px] rotate-0 opacity-100 gap-6">
             {/* image quota */}
-            <div className="flex flex-col gap-2 w-[86.52px] h-[48px] rotate-0 opacity-100 bg-[#1E2128] ">
+            <div className="flex flex-col gap-2 w-[86.52px] h-[48px] rotate-0 opacity-100  ">
               {/* images used */}
-              <div className="w-[86.52px] h-[20px] rotate-0 opacity-100 bg-[#1E2128] ">
-                <span className="w-[87px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-normal text-[#B6BCCA]">
+              <div className="w-[86.52px] h-[20px] rotate-0 opacity-100  ">
+                <span className="w-[87px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-normal text-gray-600 dark:text-[#B6BCCA]">
                   Images Used
                 </span>
               </div>
-              <div className="w-[69.61px] h-[28px] rotate-0 opacity-100 bg-[#1E2128] ">
-                <span className="w-[71px] h-[28px] rotate-0 opacity-100 top-[3px] font-inter font-semibold text-lg leading-[100%] tracking-normal text-white">
+              <div className="w-[69.61px] h-[28px] rotate-0 opacity-100  ">
+                <span className="w-[71px] h-[28px] rotate-0 opacity-100 top-[3px] font-inter font-semibold text-lg leading-[100%] tracking-normal text-black dark:text-white">
                   47 / 100
                 </span>
               </div>

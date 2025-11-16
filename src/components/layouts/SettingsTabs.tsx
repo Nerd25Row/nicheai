@@ -12,7 +12,7 @@ const SettingsTabs = ({
   setCurrentActiveTab,
 }: SettingsTabProps) => {
   const baseTab =
-    "shrink-0 rounded-none bg-[#1E2128] px-3 sm:px-4 py-2 h-[43px] transition-colors";
+    "shrink-0 rounded-none bg-white hover:bg-gray-100 dark:bg-[#1E2128] px-3 sm:px-4 py-2 h-[43px] transition-colors";
   const baseText =
     "font-inter text-sm sm:text-base leading-[100%] tracking-[0%] text-center whitespace-nowrap";
 
@@ -41,8 +41,8 @@ const SettingsTabs = ({
             className={cn(
               baseText,
               currentActiveTabe === "user-settings"
-                ? "text-white"
-                : "text-[#B6BCCA]"
+                ? "text-black dark:text-white"
+                : "text-gray-600 dark:text-[#B6BCCA]"
             )}
           >
             User Settings
@@ -64,8 +64,8 @@ const SettingsTabs = ({
             className={cn(
               baseText,
               currentActiveTabe === "company-settings"
-                ? "text-white"
-                : "text-[#B6BCCA]"
+                ? "text-black dark:text-white"
+                : "text-gray-600 dark:text-[#B6BCCA]"
             )}
           >
             Company Settings

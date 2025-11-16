@@ -27,7 +27,7 @@ const ResultCard: React.FC<ResultCardProps> = ({
   onSave,
   isSaving = false,
 }) => (
-  <div className="rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-6 space-y-3">
+  <div className="rounded-[20px] border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] p-6 space-y-3">
     {/* Media */}
     <div
       className={`relative rounded-lg border border-gray-600 ${bg} bg-cover bg-no-repeat bg-center overflow-hidden`}
@@ -44,17 +44,17 @@ const ResultCard: React.FC<ResultCardProps> = ({
 
     {/* Meta */}
     <div className="flex items-center justify-between">
-      <span className="font-inter text-sm font-medium text-white">{model}</span>
-      <span className="font-inter text-xs text-[#B6BCCA]">{size}</span>
+      <span className="font-inter text-sm font-medium dark:text-white">{model}</span>
+      <span className="font-inter text-xs text-gray-600 dark:text-[#B6BCCA]">{size}</span>
     </div>
 
     {/* Actions */}
     <div className="flex gap-3">
       <Button
         onClick={onDownload}
-        className="h-10 flex-1 rounded-lg border border-[#4D5057] bg-[#2E3137] text-white shadow-[0px_1px_2px_0px_#1018280D] hover:bg-[#3A3D44]"
+        className="h-10 flex-1 rounded-lg border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] text-black dark:text-white shadow-[0px_1px_2px_0px_#1018280D] hover:bg-gray-300 dark:hover:bg-[#3A3D44]"
       >
-        <Download className="mr-2 h-4 w-4" />
+        <Download className="mr-2 h-4 w-4  " />
         Download
       </Button>
       <Button
@@ -291,25 +291,25 @@ const UploadImageResult: React.FC = () => {
     }
   };
   return (
-    <div className="min-h-screen w-full bg-[#1E2128]">
+    <div className="min-h-screen w-full ">
       <div className="mx-auto w-full max-w-[1120px] px-4 md:px-6 py-6 md:py-8 space-y-6 md:space-y-12">
         {/* Title + subtitle */}
         <div className="mx-auto max-w-xl text-center space-y-2">
-          <h1 className="font-inter text-2xl md:text-3xl font-bold text-white">
+          <h1 className="font-inter text-2xl md:text-3xl font-bold dark:text-white">
             {result.modelName || "Model"} results
           </h1>
-          <p className="font-inter text-base text-[#CACFDA]">
+          <p className="font-inter text-base text-gray-600 dark:text-[#CACFDA]">
             AI-generated variations of your uploaded image
           </p>
         </div>
 
         {/* Original Image row */}
         <section className="space-y-3">
-          <h2 className="font-inter text-base md:text-lg font-bold text-white">
+          <h2 className="font-inter text-base md:text-lg font-bold dark:text-white">
             Original Image
           </h2>
 
-          <div className="rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4 md:p-6">
+          <div className="rounded-[20px] border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] p-4 md:p-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="flex items-center gap-4">
                 {originalImageUrl ? (
@@ -320,14 +320,14 @@ const UploadImageResult: React.FC = () => {
                   />
                 ) : (
                   <div className="h-20 w-20 rounded-lg bg-[#4D5057] flex items-center justify-center">
-                    <span className="text-[#B6BCCA] text-xs">No preview</span>
+                    <span className="dark:text-[#B6BCCA] text-xs">No preview</span>
                   </div>
                 )}
                 <div className="space-y-0.5">
-                  <p className="font-inter text-sm text-[#CACFDA]">
+                  <p className="font-inter text-sm dark:text-[#CACFDA]">
                     {result.originalFileName || "Unknown file"}
                   </p>
-                  <p className="font-inter text-xs text-[#B6BCCA]">
+                  <p className="font-inter text-xs text-gray-600 dark:text-[#B6BCCA]">
                     Uploaded on {formatDate(result.processedAt)}
                   </p>
                 </div>
@@ -336,16 +336,16 @@ const UploadImageResult: React.FC = () => {
               <Button
                 onClick={handleReprocess}
                 disabled={isReprocessing}
-                className="h-10 w-full md:w-auto rounded-lg border border-[#4D5057] bg-[#2E3137] text-white hover:bg-[#3A3D44] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-10 w-full md:w-auto rounded-lg border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] text-black dark:text-white hover:bg-gray-300 dark:hover:bg-[#3A3D44]  disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isReprocessing ? (
                   <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin text-black dark:text-white" />
                     Regenerating...
                   </>
                 ) : (
                   <>
-                    <FaSync className="mr-2 h-4 w-4" />
+                    <FaSync className="mr-2 h-4 w-4 text-black dark:text-white " />
                     Reprocess
                   </>
                 )}
@@ -357,7 +357,7 @@ const UploadImageResult: React.FC = () => {
         {/* Controls row */}
         <section className="space-y-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <h3 className="font-inter text-xl font-bold text-white">
+            <h3 className="font-inter text-xl font-bold dark:text-white">
               AI Generated Results
             </h3>
 
@@ -371,7 +371,7 @@ const UploadImageResult: React.FC = () => {
                 Download all
               </Button>
 
-              <Button className="h-10 w-full sm:w-auto rounded-lg border border-[#4D5057] bg-[#2E3137] text-white hover:bg-[#3A3D44]">
+              <Button className="h-10 w-full sm:w-auto rounded-lg border border-[#4D5057] bg-gray-200 hover:bg-gray-300 dark:bg-[#2E3137] text-black dark:text-white dark:hover:bg-[#3A3D44]">
                 <svg
                   className="mr-2 h-4 w-4"
                   fill="none"

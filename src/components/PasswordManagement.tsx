@@ -81,11 +81,11 @@ const PasswordManagement = () => {
     <Form {...form}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center lg:items-start justify-between w-full lg:max-w-[864px] min-h-[400px] rotate-0 opacity-100 rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4"
+        className="flex flex-col items-center lg:items-start justify-between w-full lg:max-w-[864px] min-h-[400px] rotate-0 opacity-100 rounded-[20px] border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] p-4"
       >
         {/* Header */}
         <div className="flex items-center justify-center lg:justify-start w-full lg:max-w-[814px] h-[28px] rotate-0 opacity-100 mb-4">
-          <span className="w-[210px] h-[28px] truncate rotate-0 opacity-100 top-[3px] font-inter font-semibold text-lg leading-[100%] tracking-[0%] text-white">
+          <span className="w-[210px] h-[28px] truncate rotate-0 opacity-100 top-[3px] font-inter font-semibold text-lg leading-[100%] tracking-[0%] dark:text-white">
             Password Management
           </span>
         </div>
@@ -100,15 +100,15 @@ const PasswordManagement = () => {
               <FormItem className="flex flex-col justify-between w-full lg:max-w-[448px] min-h-[70px] rotate-0 opacity-100 mb-4">
                 <FormLabel className="w-full lg:max-w-[448px] h-[20px] rotate-0 opacity-100 mb-2">
                   {" "}
-                  <span className="w-full lg:w-[124px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+                  <span className="w-full lg:w-[124px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
                     Current Password
                   </span>
                 </FormLabel>
                 <FormControl>
-                  <div className="flex items-center w-full lg:max-w-[395px] h-[42px] rotate-0 opacity-100 pr-4 pl-4 gap-3 rounded-xl bg-[#4D5057]">
+                  <div className="flex items-center w-full lg:max-w-[395px] h-[42px] rotate-0 opacity-100 pr-4 pl-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057]">
                     <Input
                       {...field}
-                      className="w-full h-[26px] rotate-0 opacity-100 font-inter font-normal text-base border-0 leading-6 tracking-[0%] align-middle text-[#ADAEBC] placeholder:text-[#ADAEBC] bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                      className="w-full h-[26px] rotate-0 opacity-100 font-inter font-normal text-base border-0 leading-6 tracking-[0%] align-middle dark:text-[#ADAEBC] dark:placeholder:text-[#ADAEBC] bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                       placeholder="••••••••"
                       type="password"
                     />
@@ -125,15 +125,15 @@ const PasswordManagement = () => {
             render={({ field }) => (
               <FormItem className="flex flex-col justify-between w-full lg:max-w-[448px] min-h-[70px] rotate-0 opacity-100 mb-4">
                 <FormLabel className="w-full lg:max-w-[448px] h-[20px] rotate-0 opacity-100 mb-2">
-                  <span className="w-full lg:max-w-[124px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+                  <span className="w-full lg:max-w-[124px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
                     New Password
                   </span>
                 </FormLabel>
                 <FormControl>
-                  <div className="flex items-center w-full lg:max-w-[395px] h-[42px] rotate-0 opacity-100 pr-4 pl-4 gap-3 rounded-xl bg-[#4D5057]">
+                  <div className="flex items-center w-full lg:max-w-[395px] h-[42px] rotate-0 opacity-100 pr-4 pl-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057]">
                     <Input
                       {...field}
-                      className="w-full h-[26px] rotate-0 opacity-100 font-inter font-normal text-base border-0 leading-6 tracking-[0%] align-middle text-[#ADAEBC] placeholder:text-[#ADAEBC] bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                      className="w-full h-[26px] rotate-0 opacity-100 font-inter font-normal text-base border-0 leading-6 tracking-[0%] align-middle dark:text-[#ADAEBC] dark:placeholder:text-[#ADAEBC] bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                       placeholder="••••••••"
                       type="password"
                     />
@@ -152,15 +152,15 @@ const PasswordManagement = () => {
               <FormItem className="flex flex-col justify-between w-full lg:max-w-[448px] min-h-[70px] rotate-0 opacity-100 mb-4">
                 <FormLabel className="w-full lg:max-w-[448px] h-[20px] rotate-0 opacity-100 mb-2">
                   {" "}
-                  <span className="w-full lg:w-[161px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-[#B6BCCA]">
+                  <span className="w-full lg:w-[161px] h-[20px] rotate-0 opacity-100 top-[1px] font-inter font-normal text-sm leading-[100%] tracking-[0%] text-gray-600 dark:text-[#B6BCCA]">
                     Confirm New Password
                   </span>
                 </FormLabel>
                 <FormControl>
-                  <div className="flex items-center w-full lg:max-w-[395px] h-[42px] rotate-0 opacity-100 pr-4 pl-4 gap-3 rounded-xl bg-[#4D5057]">
+                  <div className="flex items-center w-full lg:max-w-[395px] h-[42px] rotate-0 opacity-100 pr-4 pl-4 gap-3 rounded-xl bg-white dark:bg-[#4D5057]">
                     <Input
                       {...field}
-                      className="w-full h-[26px] rotate-0 opacity-100 font-inter font-normal text-base border-0 leading-6 tracking-[0%] align-middle text-[#ADAEBC] placeholder:text-[#ADAEBC] bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                      className="w-full h-[26px] rotate-0 opacity-100 font-inter font-normal text-base border-0 leading-6 tracking-[0%] align-middle dark:text-[#ADAEBC] dark:placeholder:text-[#ADAEBC] bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                       placeholder="••••••••"
                       type="password"
                     />
@@ -196,17 +196,17 @@ const PasswordManagement = () => {
         <Button
           type="submit"
           disabled={isSubmitting || updatePasswordMutation.isPending}
-          className="w-[170px] h-[40px] rotate-0 opacity-100 px-4 gap-2 rounded-lg border border-[#4D5057] bg-[#2E3137] hover:bg-[#4D5057]/50 shadow-[0px_1px_2px_0px_#1018280D] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-[170px] h-[40px] rotate-0 opacity-100 px-4 gap-2 rounded-lg border border-[#4D5057] bg-gray-200 hover:bg-gray-300 dark:bg-[#2E3137] dark:hover:bg-[#4D5057]/50 shadow-[0px_1px_2px_0px_#1018280D] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting || updatePasswordMutation.isPending ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin mr-2" />
-              <span className="font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-white">
+              <span className="font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-black dark:text-white">
                 Updating...
               </span>
             </>
           ) : (
-            <span className="w-[138px] h-[24px] rotate-0 opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-white">
+            <span className="w-[138px] h-[24px] rotate-0 opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-black dark:text-white">
               Update Password
             </span>
           )}

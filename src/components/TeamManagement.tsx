@@ -32,19 +32,19 @@ const TeamManagement = () => {
     } catch (error) {}
   };
   return (
-    <div className="w-full lg:max-w-[864px] min-h-[288px] rounded-[20px] border border-[#4D5057] bg-[#2E3137] p-4">
+    <div className="w-full lg:max-w-[864px] min-h-[288px] rounded-[20px] border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] p-4">
       <div className="w-full lg:max-w-[814px] min-h-[40px] flex flex-col items-center lg:flex-row justify-between mb-4">
         <div className="w-full lg:max-w-[165.05px] min-h-[28px]">
-          <span className="font-inter font-medium text-lg text-white">
+          <span className="font-inter font-medium text-lg dark:text-white">
             Team Management
           </span>
         </div>
         <Button
-          className="flex items-center w-full lg:max-w-[224px] min-h-[40px] gap-2 rounded-[8px] border border-[#4D5057] bg-[#2E3137] px-4 py-2 shadow-[0px_1px_2px_0px_#1018280D]"
+          className="flex items-center w-full lg:max-w-[224px] min-h-[40px] gap-2 rounded-[8px] border border-[#4D5057] bg-gray-200 hover:bg-gray-300 dark:bg-[#2E3137] text-black dark:text-white px-4 py-2 shadow-[0px_1px_2px_0px_#1018280D]"
           onClick={handleInviteTeamMembers}
         >
-          <Plus className="w-full lg:max-w-[16px] h-[16px] text-white" />
-          <span className="w-full lg:max-w-[168px] min-h-[24px] font-inter font-bold text-base text-white">
+          <Plus className="w-full lg:max-w-[16px] h-[16px] " />
+          <span className="w-full lg:max-w-[168px] min-h-[24px] font-inter font-bold text-base ">
             Invite Team Members
           </span>
         </Button>
@@ -56,17 +56,17 @@ const TeamManagement = () => {
           <TableHeader>
             <TableRow className="border-b border-[#4D5057]">
               <TableHead className="px-3 py-3">
-                <span className="font-inter font-medium text-sm text-[#B6BCCA]">
+                <span className="font-inter font-medium text-sm text-gray-600 dark:text-[#B6BCCA]">
                   Name
                 </span>
               </TableHead>
               <TableHead className="px-3 py-3">
-                <span className="font-inter font-medium text-sm text-[#B6BCCA]">
+                <span className="font-inter font-medium text-sm text-gray-600 dark:text-[#B6BCCA]">
                   Role
                 </span>
               </TableHead>
               <TableHead className="px-3 py-3">
-                <span className="font-inter font-medium text-sm text-[#B6BCCA]">
+                <span className="font-inter font-medium text-sm text-gray-600 dark:text-[#B6BCCA]">
                   Status
                 </span>
               </TableHead>
@@ -75,24 +75,22 @@ const TeamManagement = () => {
 
           <TableBody>
             <TableRow className="border-b border-[#4D5057]">
-              <TableCell className="flex items-center gap-3 px-3 py-4 text-white">
+              <TableCell className="flex items-center gap-3 px-3 py-4 text-black text-black dark:text-white">
                 <img
                   src="/assets/images/team_member_1.jpg"
                   className="w-8 h-8 rounded-full border border-[#E5E7EB]"
                   alt="member"
                 />
                 <div>
-                  <span className="font-inter text-base text-white">
-                    John Smith
-                  </span>
+                  <span className="font-inter text-base ">John Smith</span>
                 </div>
               </TableCell>
-              <TableCell className="w-[191.5px] h-[32px] rotate-0 opacity-100 text-white">
+              <TableCell className="w-[191.5px] h-[32px] rotate-0 opacity-100 ">
                 <Select>
-                  <SelectTrigger className="w-[102px] h-[29px] rotate-0 opacity-100 pr-[6px] pl-[12px] rounded-md bg-[#4D5057] flex justify-between items-center">
+                  <SelectTrigger className="w-[102px] h-[29px] rotate-0 opacity-100 pr-[6px] pl-[12px] rounded-md bg-gray-50 dark:bg-[#4D5057] flex justify-between items-center">
                     <SelectValue
                       placeholder="Admin"
-                      className="w-[42px] h-[29px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] align-middle text-white"
+                      className="w-[42px] h-[29px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] align-middle text-black dark:text-white"
                     />
                   </SelectTrigger>
                   <SelectContent>
@@ -108,33 +106,31 @@ const TeamManagement = () => {
                   </span>
                 </div>
               </TableCell>
-              <TableCell className="w-[32px] h-[32px] rotate-0 opacity-100  text-white relative">
+              <TableCell className="w-[32px] h-[32px] rotate-0 opacity-100  text-black dark:text-[#B6BCCA] relative">
                 <div className="w-[4px] h-[16px] rotate-0 opacity-100 relative">
                   {/* NEXT TO DO */}
-                  <MoreVertical className=" rotate-0 opacity-100  text-[#B6BCCA]" />
+                  <MoreVertical className=" rotate-0 opacity-100" />
                 </div>
               </TableCell>
             </TableRow>
 
             <TableRow className="border-b border-[#4D5057]">
-              <TableCell className="flex items-center gap-3 px-3 py-4 text-white">
+              <TableCell className="flex items-center gap-3 px-3 py-4 text-black dark:text-white">
                 <img
                   src="/assets/images/team_member_2.jpg"
                   className="w-8 h-8 rounded-full border border-[#E5E7EB]"
                   alt="member"
                 />
                 <div>
-                  <span className="font-inter text-base text-white">
-                    Sarah Johnson
-                  </span>
+                  <span className="font-inter text-base ">Sarah Johnson</span>
                 </div>
               </TableCell>
-              <TableCell className="w-[191.5px] h-[32px] rotate-0 opacity-100 text-white">
+              <TableCell className="w-[191.5px] h-[32px] rotate-0 opacity-100 ">
                 <Select>
-                  <SelectTrigger className="w-[102px] h-[29px] rotate-0 opacity-100 pr-[6px] pl-[12px] rounded-md bg-[#4D5057] flex justify-between items-center">
+                  <SelectTrigger className="w-[102px] h-[29px] rotate-0 opacity-100 pr-[6px] pl-[12px] rounded-md bg-gray-50 dark:bg-[#4D5057] flex justify-between items-center">
                     <SelectValue
                       placeholder="Admin"
-                      className="w-[42px] h-[29px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] align-middle text-white"
+                      className="w-[42px] h-[29px] rotate-0 opacity-100 font-inter font-normal text-sm leading-[100%] tracking-[0%] align-middle text-black dark:text-white"
                     />
                   </SelectTrigger>
                   <SelectContent>
@@ -150,10 +146,10 @@ const TeamManagement = () => {
                   </span>
                 </div>
               </TableCell>
-              <TableCell className="w-[32px] h-[32px] rotate-0 opacity-100  text-white relative">
+              <TableCell className="w-[32px] h-[32px] rotate-0 opacity-100  text-black dark:text-[#B6BCCA] relative">
                 <div className="w-[4px] h-[16px] rotate-0 opacity-100 relative">
                   {/* NEXT TO DO */}
-                  <MoreVertical className=" rotate-0 opacity-100  text-[#B6BCCA]" />
+                  <MoreVertical className=" rotate-0 opacity-100 " />
                 </div>
               </TableCell>
             </TableRow>
