@@ -87,16 +87,16 @@ const AvatarUploadDialog: React.FC<AvatarUploadDialogProps> = ({
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
-      <AlertDialogContent className="flex flex-col w-full max-w-[500px] rounded-3xl border border-[#4D5057] bg-[#2E3137] p-6 md:p-8">
+      <AlertDialogContent className="flex flex-col w-full max-w-[500px] rounded-3xl border border-[#4D5057] bg-gray-200 dark:bg-[#2E3137] p-6 md:p-8">
         <AlertDialogHeader className="relative">
           <Button
             onClick={handleClose}
             disabled={uploadAvatarMutation.isPending}
-            className="absolute -top-2 -right-2 w-8 h-8 p-0 bg-transparent hover:bg-[#4D5057]/50 text-white disabled:opacity-50"
+            className="absolute -top-2 -right-2 w-8 h-8 p-0 bg-transparent dark:hover:bg-[#4D5057]/50 dark:text-white disabled:opacity-50"
           >
             <X className="w-4 h-4" />
           </Button>
-          <AlertDialogTitle className="font-inter font-bold text-xl md:text-2xl text-white text-left">
+          <AlertDialogTitle className="font-inter font-bold text-xl md:text-2xl dark:text-white text-left">
             Upload Profile Picture
           </AlertDialogTitle>
         </AlertDialogHeader>
@@ -105,7 +105,7 @@ const AvatarUploadDialog: React.FC<AvatarUploadDialogProps> = ({
           {/* Current Avatar Preview */}
           {currentAvatarUrl && !previewUrl && (
             <div className="flex flex-col items-center gap-4">
-              <span className="font-inter font-normal text-sm text-[#B6BCCA]">
+              <span className="font-inter font-normal text-sm text-gray-600 dark:text-[#B6BCCA]">
                 Current Avatar
               </span>
               <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-[#4D5057]">
@@ -124,8 +124,8 @@ const AvatarUploadDialog: React.FC<AvatarUploadDialogProps> = ({
               {...getRootProps()}
               className={`flex flex-col items-center justify-center w-full h-auto min-h-[200px] rounded-xl border border-dashed p-6 transition-colors cursor-pointer ${
                 isDragActive
-                  ? "border-[#00FFFF] bg-[#2E3137]/80"
-                  : "border-[#7E8390] bg-[#1D2027]"
+                  ? "border-[#00FFFF] bg-gray-100 dark:bg-[#2E3137]/80"
+                  : "border-[#7E8390] bg-gray-200 dark:bg-[#1D2027]"
               }`}
             >
               <input {...getInputProps()} />
@@ -133,24 +133,24 @@ const AvatarUploadDialog: React.FC<AvatarUploadDialogProps> = ({
                 <div className="w-12 h-12 flex items-center justify-center">
                   <Upload
                     className={`w-8 h-8 transition-colors ${
-                      isDragActive ? "text-[#00FFFF]" : "text-[#B6BCCA]"
+                      isDragActive ? "text-[#00FFFF]" : "dark:text-[#B6BCCA]"
                     }`}
                   />
                 </div>
                 <div className="flex flex-col items-center gap-2 text-center">
                   <span
                     className={`font-inter font-normal text-sm leading-5 transition-colors ${
-                      isDragActive ? "text-[#00FFFF]" : "text-[#CACFDA]"
+                      isDragActive ? "text-[#00FFFF]" : "dark:text-[#CACFDA]"
                     }`}
                   >
                     {isDragActive
                       ? "Drop the image here"
                       : "Drag & drop an image here, or click to select"}
                   </span>
-                  <span className="font-inter font-medium text-xs text-[#B6BCCA]">
+                  <span className="font-inter font-medium text-xs text-gray-600 dark:text-[#B6BCCA]">
                     Max. File Size: 5MB
                   </span>
-                  <span className="font-inter font-normal text-xs text-[#7E8390]">
+                  <span className="font-inter font-normal text-xs text-gray-600 dark:text-[#7E8390]">
                     Supports: JPG, PNG, GIF, WebP
                   </span>
                 </div>
@@ -159,7 +159,7 @@ const AvatarUploadDialog: React.FC<AvatarUploadDialogProps> = ({
           ) : (
             /* Preview */
             <div className="flex flex-col items-center gap-4">
-              <span className="font-inter font-normal text-sm text-[#B6BCCA]">
+              <span className="font-inter font-normal text-sm text-gray-600 dark:text-[#B6BCCA]">
                 Preview
               </span>
               <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-[#4D5057]">
@@ -171,7 +171,7 @@ const AvatarUploadDialog: React.FC<AvatarUploadDialogProps> = ({
                 <Button
                   onClick={handleRemove}
                   disabled={uploadAvatarMutation.isPending}
-                  className="absolute top-2 right-2 w-8 h-8 p-0 bg-[#1D2027]/90 hover:bg-[#1D2027] text-white rounded-full"
+                  className="absolute top-2 right-2 w-8 h-8 p-0 bg-[#1D2027]/90 hover:bg-[#1D2027] dark:text-white rounded-full"
                 >
                   <X className="w-4 h-4" />
                 </Button>
@@ -200,14 +200,14 @@ const AvatarUploadDialog: React.FC<AvatarUploadDialogProps> = ({
             <Button
               onClick={handleClose}
               disabled={uploadAvatarMutation.isPending}
-              className="px-6 py-2 rounded-lg bg-transparent hover:bg-[#4D5057]/50 text-[#B6BCCA] border border-[#4D5057] disabled:opacity-50"
+              className="px-6 py-2 rounded-lg bg-transparent hover:bg-gray-300 dark:hover:bg-[#4D5057]/50 text-black dark:text-[#B6BCCA] border border-[#4D5057] disabled:opacity-50"
             >
               Cancel
             </Button>
             <Button
               onClick={handleUpload}
               disabled={!selectedFile || uploadAvatarMutation.isPending}
-              className="px-6 py-2 rounded-lg bg-[#00FFFF] hover:bg-[#00E6E6] text-[#1D2027] font-bold disabled:opacity-50 disabled:cursor-not-allowed shadow-[0px_-20px_20px_0px_#01FF013D_inset]"
+              className="px-6 py-2 rounded-lg bg-[#00FFFF] hover:bg-[#00E6E6] text-black dark:text-[#1D2027] font-bold disabled:opacity-50 disabled:cursor-not-allowed shadow-[0px_-20px_20px_0px_#01FF013D_inset]"
             >
               {uploadAvatarMutation.isPending ? (
                 <>

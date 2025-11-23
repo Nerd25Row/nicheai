@@ -19,7 +19,8 @@ const ApiKeyGeneration = ({
           opacity-100
           rounded-2xl
           border border-[#393B41]
-          bg-[#1D2027]
+          bg-gray-200
+          dark:bg-[#1D2027]
           shadow-[0px_15px_70px_-4px_rgba(16,24,40,0.1)]
           pt-8 pr-6 pb-6 pl-6 sm:pt-12 sm:pr-12 sm:pb-8 sm:pl-12
         "
@@ -28,9 +29,14 @@ const ApiKeyGeneration = ({
         <Button
           onClick={() => onOpenChange(false)}
           className="
+          cursor-pointer
             absolute top-4 right-4
-            text-[#B6BCCA]
-            hover:text-white
+            text-black
+            bg-transparent
+            hover:bg-gray-300
+            dark:hover:bg-gray-900
+            text-black
+            dark:text-[#B6BCCA]
             transition-colors
           "
         >
@@ -58,10 +64,10 @@ const ApiKeyGeneration = ({
               text-center
             "
           >
-            <span className="w-full sm:w-[204px] h-[36px] opacity-100 font-inter font-bold text-[28px] leading-[36px] tracking-[-2%] text-center text-white">
+            <span className="w-full sm:w-[204px] h-[36px] opacity-100 font-inter font-bold text-[28px] leading-[36px] tracking-[-2%] text-center dark:text-white">
               Welcome back!
             </span>
-            <span className="w-full sm:w-[449px] h-auto opacity-100 font-inter font-normal text-base leading-6 tracking-[0%] text-center text-[#B6BCCA]">
+            <span className="w-full sm:w-[449px] h-auto opacity-100 font-inter font-normal text-base leading-6 tracking-[0%] text-center text-gray-600 dark:text-[#B6BCCA]">
               Your account is ready. Here's your API key to start testing.
             </span>
           </div>
@@ -76,7 +82,7 @@ const ApiKeyGeneration = ({
               gap-3
             "
           >
-            <span className="w-full sm:w-[449px] h-[24px] opacity-100 font-inter font-medium text-base leading-6 tracking-[0%] align-middle text-[#CACFDA]">
+            <span className="w-full sm:w-[449px] h-[24px] opacity-100 font-inter font-medium text-base leading-6 tracking-[0%] align-middle text-gray-600 dark:text-[#CACFDA]">
               Your API Key
             </span>
 
@@ -97,8 +103,9 @@ const ApiKeyGeneration = ({
                   w-full sm:w-[283px]
                   h-[48px]
                   opacity-100 gap-2
-                  bg-[#2E3137] border-none
-                  text-white placeholder:text-white
+                  bg-white
+                  dark:bg-[#2E3137] border-none
+                  dark:text-white dark:placeholder:text-white
                   focus:outline-none
                 "
                 readOnly
@@ -106,19 +113,23 @@ const ApiKeyGeneration = ({
 
               <Button
                 className="
+                  cursor-pointer
                   flex items-center justify-center
                   w-full sm:w-[154px]
                   h-[48px]
                   opacity-100 gap-2
-                  bg-[#2E3137]
+                  bg-gray-200
+                  dark:bg-[#2E3137]
                   border border-[#4D5057]
                   shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)]
-                  text-white
-                  hover:bg-[#2E3137]
+                  text-black
+                  dark:text-white
+                  hover:bg-gray-300
+                  dark:hover:bg-[#2E3137]
                 "
               >
-                <Copy className="w-[16.25px] h-[17.92px] opacity-100 text-white" />
-                <span className="w-auto sm:w-[78px] h-[24px] opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-white">
+                <Copy className="w-[16.25px] h-[17.92px] opacity-100 " />
+                <span className="w-auto sm:w-[78px] h-[24px] opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle e">
                   Copy Link
                 </span>
               </Button>
@@ -141,7 +152,7 @@ const ApiKeyGeneration = ({
                 alt="info"
               />
             </div>
-            <span className="w-auto sm:w-[421px] h-auto sm:h-[40px] opacity-100 font-inter font-normal text-sm leading-5 tracking-[1%] text-[#B6BCCA]">
+            <span className="w-auto sm:w-[421px] h-auto sm:h-[40px] opacity-100 font-inter font-normal text-sm leading-5 tracking-[1%] text-gray-600 dark:text-[#B6BCCA]">
               You have 100 free images to start testing. No credit card
               required.
             </span>
@@ -158,6 +169,7 @@ const ApiKeyGeneration = ({
           >
             <Button
               className="
+              cursor-pointer
                 w-full sm:w-[449px]
                 h-[48px]
                 opacity-100 gap-2
@@ -175,17 +187,18 @@ const ApiKeyGeneration = ({
 
             <Button
               className="
+              cursor-pointer
                 w-full sm:w-[201px]
                 h-[40px]
                 opacity-100 gap-2
                 rounded-md px-1 py-2
                 bg-transparent border-none
-                text-white
-                hover:bg-transparent
+                text-black dark:text-[#72E6E5]
+                hover:bg-gray-300
               "
               variant="ghost"
             >
-              <span className="w-auto sm:w-[193px] h-[24px] opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle text-[#72E6E5]">
+              <span className="w-auto sm:w-[193px] h-[24px] opacity-100 font-inter font-bold text-base leading-6 tracking-[0%] align-middle ">
                 View Api documentation
               </span>
             </Button>

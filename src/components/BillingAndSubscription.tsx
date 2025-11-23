@@ -67,7 +67,7 @@ const BillingAndSubscription = ({
         </div>
 
         <Button className="w-full  lg:max-w-[147.640625px] h-[40px] bg-gray-200 hover:bg-gray-200 dark:bg-[#2E3137] cursor-pointer ">
-          <span className=" h-[24px] font-inter font-medium text-base leading-[100%] text-center  text-[#00FFFF] ">
+          <span className=" h-[24px] font-inter font-medium text-base leading-[100%] text-center  text-black dark:text-[#00FFFF] ">
             View Billing History
           </span>
         </Button>

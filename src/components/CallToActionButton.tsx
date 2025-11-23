@@ -23,15 +23,18 @@ const CallToActionButton = () => {
           {/* Button */}
           <Button
             className="
+            cursor-pointer
               w-full sm:w-auto h-[48px]
               px-6 gap-2 rounded-lg bg-white
               shadow-[0px_-20px_20px_0px_rgba(1,255,1,0.24)]
               text-black font-medium
+              text-[#1D2027]
+              hover:bg-gray-300
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1D2027] focus-visible:ring-offset-white
             "
             aria-label="Contact Sales"
           >
-            <span className="font-inter font-bold text-base leading-6 text-[#1D2027]">
+            <span className="font-inter font-bold text-base leading-6 ">
               Contact Sales
             </span>
           </Button>

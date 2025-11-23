@@ -83,8 +83,8 @@ const ResendEmailPage = () => {
             {message}
           </div>
         )}
-        <div className="flex flex-col items-center w-[540px] min-h-[500px] rotate-0 opacity-100 gap-8 rounded-2xl border border-[#393B41] p-12 bg-[#1D2027] shadow-[0px_15px_70px_-4px_#1018281A]">
-          <div className="flex items-center justify-center w-[120px] h-[120px] rotate-0 opacity-100 gap-[15px] rounded-[93.75px] p-[15px] bg-[#2E3137]">
+        <div className="flex flex-col items-center w-[540px] min-h-[500px] rotate-0 opacity-100 gap-8 rounded-2xl border border-[#393B41] p-12 bg-gray-200 dark:bg-[#1D2027] shadow-[0px_15px_70px_-4px_#1018281A]">
+          <div className="flex items-center justify-center w-[120px] h-[120px] rotate-0 opacity-100 gap-[15px] rounded-[93.75px] p-[15px] bg-gray-200 dark:bg-[#2E3137]">
             <div className="flex items-center justify-center w-[45px] h-[45px] rotate-0 opacity-100">
               <img src="/assets/images/email.svg" />
             </div>
@@ -93,11 +93,11 @@ const ResendEmailPage = () => {
           
           <div className="flex flex-col items-center w-[444px] gap-8">
             <div className="flex flex-col items-center w-[444px] gap-4">
-              <h1 className="md:w-[350px] h-[36px] rotate-0 opacity-100 font-inter font-bold text-[28px] leading-[36px] tracking-[-0.02em] text-center text-white">
+              <h1 className="md:w-[350px] h-[36px] rotate-0 opacity-100 font-inter font-bold text-[28px] leading-[36px] tracking-[-0.02em] text-center text-black dark:text-white">
                 Resend Confirmation Email
               </h1>
 
-              <p className="w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-normal text-[16px] leading-[24px] tracking-[0em] text-center text-[#B6BCCA]">
+              <p className="w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-normal text-[16px] leading-[24px] tracking-[0em] text-center text-gray-600 dark:text-[#B6BCCA]">
                 Enter your email address to resend the confirmation email
               </p>
             </div>
@@ -119,15 +119,15 @@ const ResendEmailPage = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem className="flex flex-col w-full gap-2">
-                      <FormLabel className="w-full font-inter font-medium text-[16px] leading-[24px] text-[#CACFDA]">
+                      <FormLabel className="w-full font-inter font-medium text-[16px] leading-[24px] text-gray-600 dark:text-[#CACFDA]">
                         Email Address
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full gap-3 rounded-xl px-4 py-3 bg-[#2E3137] h-[48px]">
+                        <div className="flex w-full gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] h-[48px]">
                           <Input
                             type="email"
                             placeholder="Enter your email address"
-                            className="w-full h-auto min-h-[24px] font-inter font-normal text-base leading-6 text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] focus:ring-0"
+                            className="w-full h-auto min-h-[24px] font-inter font-normal text-base leading-6 text-black dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] focus:ring-0"
                             {...field}
                           />
                         </div>

@@ -87,7 +87,7 @@ export async function createInviteLink(): Promise<InviteLinkResponse> {
 
   if (inviteError) throw inviteError;
 
-  const inviteUrl = `${window.location.origin}/invite/${invitation.token}`;
+  const inviteUrl = `${window.location.origin}/auth/invite/${invitation.token}`;
 
   return {
     token: invitation.token,

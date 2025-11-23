@@ -97,14 +97,14 @@ const SignupForm = () => {
     <div className="relative md:absolute flex flex-col items-center w-full max-w-[90%] sm:max-w-[500px] md:w-[540px] min-h-screen md:h-[996px] rotate-0 opacity-100 top-0 md:top-[64px] gap-6 md:gap-10 px-4 md:px-0 py-8 md:py-0 pb-20 md:pb-0">
       {/* logo */}
       <LogoComponent />
-      <div className="flex flex-col items-center w-full md:w-[540px] h-auto md:h-[908px] rotate-0 opacity-100 gap-4">
-        <div className="flex flex-col w-full md:w-[540px] h-auto md:h-[900px] rotate-0 opacity-100 rounded-2xl border border-[#393B41] gap-8 md:gap-[59px] p-6 md:p-12 bg-[#1D2027] shadow-[0px_15px_70px_-4px_#1018281A]">
+      <div className="flex flex-col items-center w-full lg:max-w-[540px] lg:min-h-[908px] rotate-0 opacity-100 gap-4">
+        <div className="flex flex-col w-full md:w-[540px] h-auto md:h-[900px] rotate-0 opacity-100 rounded-2xl border border-[#393B41] gap-8 md:gap-[59px] p-6 md:p-12 bg-gray-200 dark:bg-[#1D2027] shadow-[0px_15px_70px_-4px_#1018281A]">
           <div className="flex flex-col w-full md:w-[444px] h-auto rotate-0 opacity-100 gap-6 md:gap-8">
             <div className="flex flex-col items-center w-full md:w-[444px] h-auto md:h-[76px] rotate-0 opacity-100 gap-4">
-              <h1 className="w-full max-w-[330px] h-auto md:h-[36px] rotate-0 opacity-100 font-inter font-bold text-[24px] md:text-[28px] leading-[32px] md:leading-[36px] tracking-[-0.02em] text-center text-white px-2">
+              <h1 className="w-full max-w-[330px] h-auto md:h-[36px] rotate-0 opacity-100 font-inter font-bold text-[24px] md:text-[28px] leading-[32px] md:leading-[36px] tracking-[-0.02em] text-center text-black dark:text-white px-2">
                 Create Business Account
               </h1>
-              <span className="w-full md:w-[444px] h-auto md:h-[24px] rotate-0 opacity-100 font-inter font-normal text-[16px] leading-[24px] tracking-[0em] text-center text-[#B6BCCA]">
+              <span className="w-full md:w-[444px] h-auto md:h-[24px] rotate-0 opacity-100 font-inter font-normal text-[16px] leading-[24px] tracking-[0em] text-center text-gray-600 dark:text-[#B6BCCA]">
                 Join thousands of companies already using our platform
               </span>
             </div>
@@ -125,14 +125,14 @@ const SignupForm = () => {
                   name="first_name"
                   render={({ field }) => (
                     <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-[#CACFDA]">
+                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         First Name
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
                           <Input
                             placeholder="Enter first name"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
                             {...field}
                           />
                         </div>
@@ -147,14 +147,14 @@ const SignupForm = () => {
                   name="last_name"
                   render={({ field }) => (
                     <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-[#CACFDA]">
+                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         Last Name
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
                           <Input
                             placeholder="Enter last name"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
                             {...field}
                           />
                         </div>
@@ -169,14 +169,14 @@ const SignupForm = () => {
                   name="company_name"
                   render={({ field }) => (
                     <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-[#CACFDA]">
+                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         Company Name
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
                           <Input
                             placeholder="Enter company name"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
                             {...field}
                           />
                         </div>
@@ -191,14 +191,14 @@ const SignupForm = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-[#CACFDA]">
+                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         Business Email
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
                           <Input
                             placeholder="Enter your business email"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
                             {...field}
                           />
                         </div>
@@ -213,16 +213,16 @@ const SignupForm = () => {
                   name="phone_number"
                   render={({ field }) => (
                     <FormItem className="flex flex-col w-full md:w-[444px] gap-2">
-                      <FormLabel className="w-full font-inter font-medium text-[16px] leading-[24px] text-[#CACFDA]">
+                      <FormLabel className="w-full font-inter font-medium text-[16px] leading-[24px] text-gray-600 dark:text-[#CACFDA]">
                         Phone Number (Optional)
                       </FormLabel>
 
-                      <div className="flex items-center w-full gap-3 rounded-xl px-4 py-3 bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                      <div className="flex items-center w-full gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
                         <Select defaultValue="us">
-                          <SelectTrigger className="w-[110px] h-auto min-h-[24px] bg-transparent border-0 p-0 focus:ring-0 focus:outline-none text-[#B6BCCA]">
+                          <SelectTrigger className="w-[110px] h-auto min-h-[24px] dark:bg-transparent border-0 p-0 focus:ring-0 focus:outline-none dark:text-[#B6BCCA]">
                             <SelectValue placeholder="US (+1)" />
                           </SelectTrigger>
-                          <SelectContent className="bg-[#2E3137] border-[#393B41] text-white">
+                          <SelectContent className="dark:bg-[#2E3137] border-[#393B41] text-black dark:text-white">
                             <SelectItem value="us">US (+1)</SelectItem>
                             <SelectItem value="uk">UK (+44)</SelectItem>
                             <SelectItem value="ca">CA (+1)</SelectItem>
@@ -234,8 +234,8 @@ const SignupForm = () => {
                         <FormControl>
                           <Input
                             placeholder="000 00 00 00"
-                            className="w-full h-auto min-h-[24px] font-inter font-normal text-base leading-6 text-[#B6BCCA]
-                       bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA]"
+                            className="w-full h-auto min-h-[24px] font-inter font-normal text-base leading-6 text-black dark:text-[#B6BCCA]
+                       dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA]"
                             {...field}
                           />
                         </FormControl>
@@ -251,23 +251,23 @@ const SignupForm = () => {
                   name="password"
                   render={({ field }) => (
                     <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-[#CACFDA]">
+                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         Create Password
                       </FormLabel>
                       <FormControl>
-                        <div className="relative flex w-full rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
+                        <div className="relative flex w-full rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
                           <Input
                             type={showPassword ? "text" : "password"}
 
                             placeholder="Create your password"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
                             {...field}
                           />
                           {/* Tail Icon */}
                           <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 opacity-100 text-white"
+                            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 opacity-100 text-black dark:text-white"
                           >
                             {showPassword ? (
                               <EyeOffIcon className="w-5 h-5" />

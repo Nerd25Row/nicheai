@@ -74,13 +74,13 @@ const ForgotPasswordPage = () => {
         )}
 
         {/* Main Card */}
-        <div className="bg-[#1D2027] md:w-[540px] md:h-[404px] border border-[#393B41] rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl">
+        <div className="bg-gray-200 dark:bg-[#1D2027] md:w-[540px] md:h-[404px] border border-[#393B41] rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl">
           <div className="text-center space-y-6">
             <div className="space-y-2">
-              <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-bold text-black dark:text-white tracking-tight">
                 Check Your Email
               </h1>
-              <p className="text-sm sm:text-base text-[#B6BCCA]">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-[#B6BCCA]">
                 Enter your email to receive a password reset link
               </p>
             </div>
@@ -95,14 +95,14 @@ const ForgotPasswordPage = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem className="w-full flex flex-col gap-2 opacity-100">
-                      <FormLabel className="w-full text-[#CACFDA] text-sm sm:text-[16px] leading-5 sm:leading-6 tracking-normal font-inter font-medium opacity-100">
+                      <FormLabel className="w-full text-gray-600 dark:text-[#CACFDA] text-sm sm:text-[16px] leading-5 sm:leading-6 tracking-normal font-inter font-medium opacity-100">
                         Email
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
                           <Input
                             placeholder="Enter your email"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-[#B6BCCA] bg-transparent border-0 focus:outline-none placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle text-black dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
                             {...field}
                           />
                         </div>

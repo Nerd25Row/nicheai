@@ -34,7 +34,7 @@ type MetadataMedia = Partial<
 const CATEGORY_DEFAULTS: Record<string, ModelMedia> = {
   Segmentation: {
     leftImgSrc: "/assets/images/segmentation_female_image_1.png",
-    leftBg: "bg-[#E5E7EB]",
+    leftBg: "bg-gray-200 dark:bg-[#E5E7EB]",
     rightBg: "bg-[url('/assets/images/segmentation.svg')]",
     rightImgSrc: "/assets/images/segmentation_generated.png",
     thumbnails: [
@@ -64,9 +64,9 @@ const CATEGORY_DEFAULTS: Record<string, ModelMedia> = {
     leftImgSrc: "/assets/images/immersion.png",
     rightImgSrc: "/assets/images/immersion.png",
     thumbnails: [
+      "/assets/images/immersion_2.png",
       "/assets/images/immersion.png",
-      "/assets/images/immersion.png",
-      "/assets/images/immersion.png",
+      "/assets/images/immersion_2.png",
       "/assets/images/immersion.png",
     ],
     leftAlt: "Detection input example",
@@ -74,8 +74,7 @@ const CATEGORY_DEFAULTS: Record<string, ModelMedia> = {
   },
 };
 
-const SLUG_OVERRIDES: Record<string, Partial<ModelMedia>> = {
-};
+const SLUG_OVERRIDES: Record<string, Partial<ModelMedia>> = {};
 
 function arrayOrFallback(arr: unknown, fallback: string[]) {
   return Array.isArray(arr) && arr.length > 0 ? arr.slice(0, 4) : fallback;
@@ -146,9 +145,8 @@ const MediaPair: React.FC<MediaPairProps> = ({
     {/* Left */}
     <div
       className={`flex items justify-center rounded-lg bg-cover bg-no-repeat bg-center ${
-        leftBg ?? ""
+        leftBg ?? "bg-gray-300 dark:bg-[#FBFBFB]"
       }`}
-      style={{ backgroundColor: "#FBFBFB" }}
     >
       <img
         src={leftImgSrc}

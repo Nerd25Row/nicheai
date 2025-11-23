@@ -28,14 +28,14 @@ const AvailablePlans = () => {
       {/* Cards Container */}
       <div className="flex flex-col lg:flex-row items-stretch justify-between w-full lg:max-w-[1120px] min-h-[328px] gap-4 lg:gap-6">
         {/* Card 1 */}
-        <div className="flex flex-col items-center flex-1 basis-full lg:basis-[357.328125px] min-w-0 w-full lg:max-w-[357.328125px] h-auto min-h-[324px] gap-6 lg:gap-8 rounded-3xl border border-[#4D5057] p-2 lg:p-8 bg-gray-200 dark:bg-[#2E3137]">
+        <div className="cursor-pointer flex flex-col items-center flex-1 basis-full lg:basis-[357.328125px] min-w-0 w-full lg:max-w-[357.328125px] h-auto min-h-[324px] gap-6 lg:gap-8 rounded-3xl border border-[#4D5057] p-2 lg:p-8 bg-gray-200 dark:bg-[#2E3137]  transition-all duration-300 ease-out hover:scale-[1.03]  hover:shadow-[0px_8px_25px_rgba(0,0,0,0.25)] dark:hover:shadow-[0px_8px_25px_rgba(0,0,0,0.55)] ">
           <div className="flex flex-col w-full lg:max-w-[291.328125px] h-[80px] gap-2">
             <div className="flex items-center min-w-0 w-full lg:max-w-[291.328125px] h-[24px] gap-2">
               <span className="min-w-0 w-auto lg:max-w-[191px] h-[24px] truncate font-inter font-bold text-lg lg:text-xl leading-none dark:text-white">
                 Extraction Solution
               </span>
-              <Button className="w-auto lg:max-w-[89px] h-[24px] bg-gray-200 dark:bg-[#2E3137] pt-[3px] pr-2 pb-[3px] pl-2 rounded-2xl border border-[#72E6E5] text-xs">
-                <span className="w-auto lg:max-w-[73px] h-[18px] font-inter font-medium text-xs leading-[18px] tracking-wide text-center text-[#72E6E5]">
+              <Button className="w-auto lg:max-w-[89px] h-[24px] bg-gray-200 hover:bg-gray-300 dark:bg-[#2E3137] pt-[3px] pr-2 pb-[3px] pl-2 rounded-2xl border border-[#72E6E5] text-xs">
+                <span className="w-auto lg:max-w-[73px] h-[18px] font-inter font-medium text-xs leading-[18px] tracking-wide text-center text-black dark:text-[#72E6E5]">
                   Current plan
                 </span>
               </Button>
@@ -82,7 +82,7 @@ const AvailablePlans = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="flex flex-col items-center flex-1 basis-full lg:basis-[357.328125px] min-w-0 w-full lg:max-w-[357.328125px] h-auto min-h-[324px] gap-6 lg:gap-8 rounded-3xl border border-[#4D5057] p-2 lg:p-8 bg-gray-200 dark:bg-[#2E3137]">
+        <div className="cursor-pointer flex flex-col items-center flex-1 basis-full lg:basis-[357.328125px] min-w-0 w-full lg:max-w-[357.328125px] h-auto min-h-[324px] gap-6 lg:gap-8 rounded-3xl border border-[#4D5057] p-2 lg:p-8 bg-gray-200 dark:bg-[#2E3137]  transition-all duration-300 ease-out hover:scale-[1.03]  hover:shadow-[0px_8px_25px_rgba(0,0,0,0.25)] dark:hover:shadow-[0px_8px_25px_rgba(0,0,0,0.55)] ">
           <div className="flex flex-col w-full lg:max-w-[291.328125px] min-h-[80px] gap-2">
             <div className="flex items-center flex-wrap min-w-0 w-full lg:max-w-[291.328125px] h-[24px] gap-2">
               <span className="min-w-0 font-inter font-bold text-lg lg:text-xl leading-none dark:text-white">
@@ -131,7 +131,7 @@ const AvailablePlans = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="flex flex-col items-center flex-1 basis-full lg:basis-[357.328125px] min-w-0 w-full lg:max-w-[357.328125px] h-auto min-h-[324px] gap-6 lg:gap-8 rounded-3xl border border-[#4D5057] p-6 lg:p-8 bg-gray-200 dark:bg-[#2E3137]">
+        <div className="cursor-pointer flex flex-col items-center flex-1 basis-full lg:basis-[357.328125px] min-w-0 w-full lg:max-w-[357.328125px] h-auto min-h-[324px] gap-6 lg:gap-8 rounded-3xl border border-[#4D5057] p-6 lg:p-8 bg-gray-200 dark:bg-[#2E3137]  transition-all duration-300 ease-out hover:scale-[1.03]  hover:shadow-[0px_8px_25px_rgba(0,0,0,0.25)] dark:hover:shadow-[0px_8px_25px_rgba(0,0,0,0.55)]">
           <div className="flex flex-col w-full lg:max-w-[291.328125px] h-[80px] gap-2">
             <div className="flex items-center flex-wrap min-w-0 w-full lg:max-w-[291.328125px] h-[24px] gap-2">
               <span className="min-w-0 w-auto truncate font-inter font-bold text-lg lg:text-xl leading-none dark:text-white">

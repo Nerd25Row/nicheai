@@ -97,7 +97,7 @@ const InviteTeamMembers = ({
           flex flex-col items-center
           w-[calc(100vw-2rem)] sm:w-[520px] md:w-[540px] lg:w-[540px]
           max-w-[540px]
-          rounded-2xl border border-[#393B41] bg-[#1D2027]
+          rounded-2xl border border-[#393B41] bg-gray-200 dark:bg-[#1D2027]
           shadow-[0px_15px_70px_-4px_#1018281A]
           p-0
         "
@@ -105,19 +105,30 @@ const InviteTeamMembers = ({
         {/* Header */}
         <div className="w-full py-4 px-4 sm:px-6 border-b border-b-[#4D5057]">
           <div className="flex items-center justify-between">
-            <h2 className="font-bold text-[20px] leading-[28px] tracking-[-0.01em] text-[#FFFFFF]">
+            <h2 className="font-bold text-[20px] leading-[28px] tracking-[-0.01em] text-black dark:text-[#FFFFFF]">
               Invite Team Members
             </h2>
-            <X
-              className="cursor-pointer w-[13.5px] h-[18px] text-[#B6BCCA]"
+            <Button
               onClick={() => setOpen(false)}
-            />
+              className="
+              cursor-pointer
+            absolute top-4 right-4
+            text-black
+            bg-gray-200
+            hover:bg-gray-300
+            dark:text-[#B6BCCA]
+            dark:hover:text-white
+            transition-colors
+          "
+            >
+              <X className="w-5 h-5" />
+            </Button>
           </div>
         </div>
 
         {/* Body */}
         <div className="w-full p-4 sm:p-6 space-y-6">
-          <span className="block text-sm leading-5 tracking-[0.01em] text-[#CACFDA]">
+          <span className="block text-sm leading-5 tracking-[0.01em] text-gray-600 dark:text-[#CACFDA]">
             Add team members to your organization by sending them an invite link
             or email.
           </span>
@@ -145,7 +156,7 @@ const InviteTeamMembers = ({
 
           {/* 1. Copy Link */}
           <div className="space-y-3">
-            <span className="block font-medium text-sm leading-5 tracking-[0.01em] text-[#FFFFFF]">
+            <span className="block font-medium text-sm leading-5 tracking-[0.01em] text-black dark:text-[#FFFFFF]">
               1. Copy Invite Link
             </span>
 
@@ -154,8 +165,10 @@ const InviteTeamMembers = ({
               <Input
                 className="
                   w-full h-[48px]
-                  font-normal text-base leading-6 text-[#FFFFFF]
-                  placeholder:text-[#FFFFFF]
+                  bg-white
+                  font-normal text-base leading-6 text-black dark:text-[#FFFFFF]
+                  placeholder:text-black
+                  dark:placeholder:text-[#FFFFFF]
                 "
                 placeholder="https://app.yourcompany.com/invite/abc123xyz"
                 value={inviteLink || ""}
@@ -167,7 +180,7 @@ const InviteTeamMembers = ({
                 disabled={!inviteLink || copied}
                 className="
                   w-full md:w-[154px] h-[48px] px-6 gap-2
-                  rounded-lg border border-[#4D5057] bg-[#2E3137]
+                  rounded-lg border border-[#4D5057] bg-gray-200 hover:bg-gray-300 dark:bg-[#2E3137]
                   shadow-[0px_1px_2px_0px_#1018280D]
                   flex items-center justify-center
                   disabled:opacity-50 disabled:cursor-not-allowed
@@ -176,14 +189,14 @@ const InviteTeamMembers = ({
                 {copied ? (
                   <>
                     <CheckCircle2 className="w-[16.25px] h-[17.92px] text-green-400" />
-                    <span className="font-bold text-base leading-6 text-[#FFFFFF]">
+                    <span className="font-bold text-base leading-6 text-black dark:text-[#FFFFFF]">
                       Copied!
                     </span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-[16.25px] h-[17.92px] text-[#FFFFFF]" />
-                    <span className="font-bold text-base leading-6 text-[#FFFFFF]">
+                    <Copy className="w-[16.25px] h-[17.92px] text-black dark:text-[#FFFFFF]" />
+                    <span className="font-bold text-base leading-6 text-black dark:text-[#FFFFFF]">
                       Copy Link
                     </span>
                   </>
@@ -195,14 +208,16 @@ const InviteTeamMembers = ({
           {/* 2. Invite by Email */}
           <div className="space-y-4">
             <div className="space-y-2">
-              <span className="block font-medium text-sm leading-5 tracking-[0.01em] text-[#FFFFFF]">
+              <span className="block font-medium text-sm leading-5 tracking-[0.01em] text-black dark:text-[#FFFFFF]">
                 2. Invite by Email
               </span>
               <Input
                 className="
                   w-full h-[48px]
-                  font-normal text-base leading-6 text-[#FFFFFF]
-                  placeholder:text-[#B6BCCA]
+                  bg-white
+                  font-normal text-base leading-6 text-black dark:text-[#FFFFFF]
+                  placeholder:text-black
+                  dark:placeholder:text-[#B6BCCA]
                 "
                 placeholder="Enter email address"
                 type="email"
@@ -217,9 +232,7 @@ const InviteTeamMembers = ({
             <Button
               onClick={handleSendInvite}
               disabled={
-                sendInvitationMutation.isPending ||
-                !email.trim() ||
-                !inviteLink
+                sendInvitationMutation.isPending || !email.trim() || !inviteLink
               }
               className="
                 group

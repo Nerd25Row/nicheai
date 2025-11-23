@@ -40,7 +40,7 @@ const TeamManagement = () => {
           </span>
         </div>
         <Button
-          className="flex items-center w-full lg:max-w-[224px] min-h-[40px] gap-2 rounded-[8px] border border-[#4D5057] bg-gray-200 hover:bg-gray-300 dark:bg-[#2E3137] text-black dark:text-white px-4 py-2 shadow-[0px_1px_2px_0px_#1018280D]"
+          className="  cursor-pointer flex items-center w-full lg:max-w-[224px] min-h-[40px] gap-2 rounded-[8px] border border-[#4D5057] bg-gray-200 hover:bg-gray-300 dark:bg-[#2E3137] text-black dark:text-white px-4 py-2 shadow-[0px_1px_2px_0px_#1018280D]"
           onClick={handleInviteTeamMembers}
         >
           <Plus className="w-full lg:max-w-[16px] h-[16px] " />
@@ -101,7 +101,7 @@ const TeamManagement = () => {
               </TableCell>
               <TableCell className="w-[191.5px] h-[32px] rotate-0 opacity-100  text-white">
                 <div className="w-[51.484375px] h-[23px] rotate-0 opacity-100 relative  rounded-full bg-[#3DD59833]">
-                  <span className="w-[41px] h-[16px] rotate-0 opacity-100 absolute top-[4px] left-[8px] font-inter font-normal text-xs leading-[100%] tracking-[0%] text-[#3DD598]">
+                  <span className="w-[41px] h-[16px] rotate-0 opacity-100 absolute top-[4px] left-[8px] font-inter font-normal text-xs leading-[100%] tracking-[0%] text-black dark:text-[#3DD598]">
                     Active
                   </span>
                 </div>
@@ -141,7 +141,7 @@ const TeamManagement = () => {
               </TableCell>
               <TableCell className="w-[191.5px] h-[32px] rotate-0 opacity-100  text-white">
                 <div className="w-[62.39px] h-[23px] rotate-0 opacity-100 relative  rounded-full bg-[#FFC54233]">
-                  <span className="w-[41px] h-[16px] rotate-0 opacity-100 absolute top-[4px] left-[8px] font-inter font-normal text-xs leading-[100%] tracking-[0%] text-[#FFC542]">
+                  <span className="w-[41px] h-[16px] rotate-0 opacity-100 absolute top-[4px] left-[8px] font-inter font-normal text-xs leading-[100%] tracking-[0%] text-black dark:text-[#FFC542]">
                     Pending
                   </span>
                 </div>

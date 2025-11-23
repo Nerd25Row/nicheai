@@ -151,7 +151,7 @@ const MobileNavigation = () => {
                 </span>
               </div>
             </div>
-            <ThemeToggler />
+            <ThemeToggler setOpen={setOpen}/>
           </div>
         </div>
       </SheetContent>

@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       { path: "reset-password", element: <ResetPasswordPage /> },
       { path: "resend-email", element: <ResendEmailPage /> },
       { path: "confirm-email", element: <ConfirmEmailPage /> },
-      { path: "invite", element: <TeamMemberSignupForm /> },
+      { path: "invite/:id", element: <TeamMemberSignupForm /> },
     ],
   },
 

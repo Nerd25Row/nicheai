@@ -17,7 +17,7 @@ const SettingsTabs = ({
     "font-inter text-sm sm:text-base leading-[100%] tracking-[0%] text-center whitespace-nowrap";
 
   return (
-    <div className="w-full border-b border-b-[#4D5057]">
+    <div className="sticky top-0 z-50 bg-white dark:bg-[#1E2128] pt-2 pb-2 w-full border-b border-b-[#4D5057] ">
       <div
         className="
           flex items-end gap-3 sm:gap-8

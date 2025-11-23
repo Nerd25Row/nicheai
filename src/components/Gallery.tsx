@@ -185,7 +185,7 @@ const Gallery: React.FC = () => {
                   </div>
                   {item.file_size_mb && (
                     <div className="shrink-0 inline-flex items-center rounded-2xl border border-[#72E6E5] px-2 py-0.5">
-                      <span className="font-inter text-xs font-medium text-[#72E6E5] whitespace-nowrap">
+                      <span className="font-inter text-xs font-medium text-black dark:text-[#72E6E5] whitespace-nowrap">
                         {item.file_size_mb.toFixed(2)} MB
                       </span>
                     </div>
