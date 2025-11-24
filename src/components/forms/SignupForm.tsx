@@ -68,7 +68,7 @@ const SignupForm = () => {
     setError,
     formState: { errors },
   } = form;
-  
+
   const signupMutation = useSignUpMutation();
   const submitSignup = async (values: FormValues) => {
     signupMutation.mutate(values, {
@@ -94,17 +94,17 @@ const SignupForm = () => {
     });
   };
   return (
-    <div className="relative md:absolute flex flex-col items-center w-full max-w-[90%] sm:max-w-[500px] md:w-[540px] min-h-screen md:h-[996px] rotate-0 opacity-100 top-0 md:top-[64px] gap-6 md:gap-10 px-4 md:px-0 py-8 md:py-0 pb-20 md:pb-0">
+    <div className="relative flex flex-col items-center w-full lg:max-w-[540px] min-h-[996px] rotate-0 opacity-100 top-0 lg:top-[64px] gap-6 lg:gap-10 px-4 lg:px-0 py-8 lg:py-0 pb-20 lg:pb-0">
       {/* logo */}
       <LogoComponent />
-      <div className="flex flex-col items-center w-full lg:max-w-[540px] lg:min-h-[908px] rotate-0 opacity-100 gap-4">
-        <div className="flex flex-col w-full md:w-[540px] h-auto md:h-[900px] rotate-0 opacity-100 rounded-2xl border border-[#393B41] gap-8 md:gap-[59px] p-6 md:p-12 bg-gray-200 dark:bg-[#1D2027] shadow-[0px_15px_70px_-4px_#1018281A]">
-          <div className="flex flex-col w-full md:w-[444px] h-auto rotate-0 opacity-100 gap-6 md:gap-8">
-            <div className="flex flex-col items-center w-full md:w-[444px] h-auto md:h-[76px] rotate-0 opacity-100 gap-4">
-              <h1 className="w-full max-w-[330px] h-auto md:h-[36px] rotate-0 opacity-100 font-inter font-bold text-[24px] md:text-[28px] leading-[32px] md:leading-[36px] tracking-[-0.02em] text-center text-black dark:text-white px-2">
+      <div className="flex flex-col items-center w-full lg:max-w-[540px] min-h-[908px] rotate-0 opacity-100 gap-4">
+        <div className="flex flex-col w-full lg:max-w-[540px] min-h-[844px] rotate-0 opacity-100 rounded-2xl border border-[#393B41] gap-8 md:gap-[59px] p-6 lg:p-12 bg-gray-200 dark:bg-[#1D2027] shadow-[0px_15px_70px_-4px_#1018281A]">
+          <div className="flex flex-col w-full lg:max-w-[444px] min-h-[748px] rotate-0 opacity-100 gap-6 md:gap-8">
+            <div className="flex flex-col items-center w-full lg:max-w-[444px] min-h-[76px] rotate-0 opacity-100 gap-6 lg:gap-4">
+              <h1 className="w-full lg:max-w-[330px] min-h-[36px] rotate-0 opacity-100 font-inter font-bold text-[24px] lg:text-[28px] leading-[32px] lg:leading-[36px] tracking-[-0.02em] text-center text-black dark:text-white px-1 lg:px-2">
                 Create Business Account
               </h1>
-              <span className="w-full md:w-[444px] h-auto md:h-[24px] rotate-0 opacity-100 font-inter font-normal text-[16px] leading-[24px] tracking-[0em] text-center text-gray-600 dark:text-[#B6BCCA]">
+              <span className="w-full lg:max-w-[444px] min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-12 lg:text-[16px] leading-[20px] lg:leading-[24px] tracking-[0em] text-center text-gray-600 dark:text-[#B6BCCA]">
                 Join thousands of companies already using our platform
               </span>
             </div>
@@ -118,21 +118,21 @@ const SignupForm = () => {
             <Form {...form}>
               <form
                 onSubmit={handleSubmit(submitSignup)}
-                className="flex flex-col w-full md:w-[444px] h-auto md:h-[560px] rotate-0 opacity-100 gap-8"
+                className="flex flex-col w-full lg:max-w-[444px] min-h-[560px] rotate-0 opacity-100 gap-4"
               >
                 <FormField
                   control={form.control}
                   name="first_name"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
+                    <FormItem className="flex flex-col w-full lg:max-w-[444px] h-[80px] rotate-0 opacity-100 gap-2">
+                      <FormLabel className="w-full lg:max-w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         First Name
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:max-w-[444px] h-[48px]">
                           <Input
                             placeholder="Enter first name"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full lg:max-w-[412px] h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] "
                             {...field}
                           />
                         </div>
@@ -146,15 +146,15 @@ const SignupForm = () => {
                   control={form.control}
                   name="last_name"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
+                    <FormItem className="flex flex-col w-full lg:max-w-[444px] h-[80px] rotate-0 opacity-100 gap-2">
+                      <FormLabel className="w-full lg:max-w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         Last Name
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:max-w-[444px] h-[48px]">
                           <Input
                             placeholder="Enter last name"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full lg:max-w-[412px] h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] "
                             {...field}
                           />
                         </div>
@@ -168,15 +168,15 @@ const SignupForm = () => {
                   control={form.control}
                   name="company_name"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
+                    <FormItem className="flex flex-col w-full lg:max-w-[444px] h-[80px] rotate-0 opacity-100 gap-2">
+                      <FormLabel className="w-full lg:max-w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         Company Name
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:max-w-[444px] h-[48px]">
                           <Input
                             placeholder="Enter company name"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full lg:max-w-[412px] h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] "
                             {...field}
                           />
                         </div>
@@ -190,15 +190,15 @@ const SignupForm = () => {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
+                    <FormItem className="flex flex-col w-full lg:max-w-[444px] h-[80px] rotate-0 opacity-100 gap-2">
+                      <FormLabel className="w-full lg:max-w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         Business Email
                       </FormLabel>
                       <FormControl>
-                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                        <div className="flex w-full  rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:max-w-[444px] h-[48px]">
                           <Input
                             placeholder="Enter your business email"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full lg:max-w-[412px] h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] "
                             {...field}
                           />
                         </div>
@@ -212,14 +212,14 @@ const SignupForm = () => {
                   control={form.control}
                   name="phone_number"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col w-full md:w-[444px] gap-2">
+                    <FormItem className="flex flex-col w-full lg:max-w-[444px] gap-2">
                       <FormLabel className="w-full font-inter font-medium text-[16px] leading-[24px] text-gray-600 dark:text-[#CACFDA]">
                         Phone Number (Optional)
                       </FormLabel>
 
-                      <div className="flex items-center w-full gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] md:w-[444px] md:h-[48px]">
+                      <div className="flex items-center w-full gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:max-w-[444px] h-[48px]">
                         <Select defaultValue="us">
-                          <SelectTrigger className="w-[110px] h-auto min-h-[24px] dark:bg-transparent border-0 p-0 focus:ring-0 focus:outline-none dark:text-[#B6BCCA]">
+                          <SelectTrigger className="lg:max-w-[110px] h-[24px] dark:bg-transparent border-0 p-0 focus:ring-0 focus:outline-none dark:text-[#B6BCCA]">
                             <SelectValue placeholder="US (+1)" />
                           </SelectTrigger>
                           <SelectContent className="dark:bg-[#2E3137] border-[#393B41] text-black dark:text-white">
@@ -234,7 +234,7 @@ const SignupForm = () => {
                         <FormControl>
                           <Input
                             placeholder="000 00 00 00"
-                            className="w-full h-auto min-h-[24px] font-inter font-normal text-base leading-6 text-black dark:text-[#B6BCCA]
+                            className="w-full h-[24px] font-inter font-normal text-base leading-6 text-black dark:text-[#B6BCCA]
                        dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA]"
                             {...field}
                           />
@@ -250,17 +250,16 @@ const SignupForm = () => {
                   control={form.control}
                   name="password"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col w-full md:w-[444px] h-auto md:h-[80px] rotate-0 opacity-100 gap-2">
-                      <FormLabel className="w-full md:w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
+                    <FormItem className="flex flex-col w-full lg:max-w-[444px] h-[80px] rotate-0 opacity-100 gap-2">
+                      <FormLabel className="w-full lg:max-w-[444px] h-[24px] rotate-0 opacity-100 font-inter font-medium text-[16px] leading-[24px] tracking-[0em] align-middle text-gray-600 dark:text-[#CACFDA]">
                         Create Password
                       </FormLabel>
                       <FormControl>
-                        <div className="relative flex w-full rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:w-[444px] lg:h-[48px]">
+                        <div className="relative flex w-full rotate-0 opacity-100 gap-3 rounded-xl px-4 py-3 bg-white dark:bg-[#2E3137] lg:max-w-[444px] h-[48px]">
                           <Input
                             type={showPassword ? "text" : "password"}
-
                             placeholder="Create your password"
-                            className="w-full max-w-[412px] h-auto min-h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] md:w-[412px] md:h-[24px]"
+                            className="w-full lg:max-w-[412px] h-[24px] rotate-0 opacity-100 font-inter font-normal text-base leading-6 tracking-normal align-middle dark:text-[#B6BCCA] dark:bg-transparent border-0 focus:outline-none dark:placeholder:text-[#B6BCCA] "
                             {...field}
                           />
                           {/* Tail Icon */}
@@ -284,9 +283,9 @@ const SignupForm = () => {
                 <Button
                   type="submit"
                   disabled={signupMutation.isPending}
-                  className="cursor-pointer w-full md:w-[444px] h-[48px] rotate-0 opacity-100 rounded-lg gap-2 px-6 bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-medium shadow-[inset_0px_-20px_20px_0px_#01FF013D]"
+                  className="cursor-pointer w-full lg:max-w-[444px] h-[48px] rotate-0 opacity-100 rounded-lg gap-2 px-6 bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-medium shadow-[inset_0px_-20px_20px_0px_#01FF013D]"
                 >
-                  <span className="w-auto md:w-[59px] h-[24px] rotate-0 opacity-100 font-inter font-bold text-[16px] leading-[24px] tracking-[0em] align-middle text-[#1D2027]">
+                  <span className="w-auto lg:max-w-[59px] h-[24px] rotate-0 opacity-100 font-inter font-bold text-[16px] leading-[24px] tracking-[0em] align-middle text-[#1D2027]">
                     {signupMutation.isPending
                       ? "Creating account..."
                       : "Sign up"}
@@ -296,8 +295,8 @@ const SignupForm = () => {
             </Form>
           </div>
         </div>
+        <BackToPage title="Back to homepage" route="/" />
       </div>
-      <BackToPage title="Back to homepage" route="/" />
     </div>
   );
 };
